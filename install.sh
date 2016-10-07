@@ -25,9 +25,9 @@ cd $HOME_PATH
 
 mkdir .config
 mkdir .config/i3
+# Todo: Clone i3 config file.
 
 sudo pacman -Syu --noconfirm
-sudo pacman -S --noconfirm dmenu lxappearance feh
 
 # Add custom repository for installation of Yaourt.
 echo "" >> /etc/pacman.conf
@@ -38,4 +38,7 @@ echo "Server = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
 echo "" >> /etc/pacman.conf
 
 pacman -Sy --noconfirm yaourt
+sudo pacman -S --noconfirm dmenu lxappearance feh
+yaourt -S --noconfirm i3-gaps-git
+sudo pacman -S --noconfirm vim tmux
 

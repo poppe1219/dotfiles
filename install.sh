@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ $# != 2 ]; then
+    echo "Usage: ./install.sh your.git@email.com git_username
+    exit 1
+fi
+
 # Check script requirements
 # =========================
 
@@ -12,7 +17,7 @@ fi
 echo "Root access: Ok"
 
 # check Internet access.
-if ! [ "`ping -c 1 google.com`" ]; then
+if ! [ "`ping -c 1 github.com`" ]; then
     echo "Internet access: Fail"
     echo "This script requres internet access."
     exit 1
@@ -20,22 +25,37 @@ fi
 echo "Internet access: Ok"
 
 HOME_PATH='/home/'
-HOME_PATH+=$USER
+HOME_PATH+=$SUDO_USER
 cd $HOME_PATH
 
-mkdir .config
-mkdir .config/i3
-# Todo: Clone i3 config file.
-
 sudo pacman -Syu --noconfirm
+sudo pacman -S --noconfirm git
+
+# Setup Git
+# =========
+git config --global user.email $1
+git config --global user.name $2
+
+# Get the dotfiles repo, if not already cloned.
+mkdir -p git/
+cd git
+if [ ! -d dotfiles ]; then
+    git clone https://github.com/poppe1219/dotfiles
+fi
+cd dotfiles
+git pull
+
+mkdir -p .config/i3
 
 # Add custom repository for installation of Yaourt.
-echo "" >> /etc/pacman.conf
-echo "# Add custom repository for installation of Yaourt." >> /etc/pacman.conf
-echo "[archlinuxfr]" >> /etc/pacman.conf
-echo "SigLevel = Never" >> /etc/pacman.conf
-echo "Server = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
-echo "" >> /etc/pacman.conf
+if ! grep "\[archlinux\]" /etc/pacman.conf ; then
+    echo "" >> /etc/pacman.conf
+    echo "# Add custom repository for installation of Yaourt." >> /etc/pacman.conf
+    echo "[archlinuxfr]" >> /etc/pacman.conf
+    echo "SigLevel = Never" >> /etc/pacman.conf
+    echo "Server = http://repo.archlinux.fr/\$arch" >> /etc/pacman.conf
+    echo "" >> /etc/pacman.conf
+fi
 
 pacman -Sy --noconfirm yaourt
 sudo pacman -S --noconfirm dmenu lxappearance feh

@@ -1,10 +1,5 @@
 #!/bin/bash
 
-if [ $# != 2 ]; then
-    echo "Usage: ./install.sh your.git@email.com git_username
-    exit 1
-fi
-
 # Check script requirements
 # =========================
 
@@ -16,7 +11,13 @@ if test $UID != "0" ; then
 fi
 echo "Root access: Ok"
 
-# check Internet access.
+# Check parameters.
+if [ $# -ne 2 ]; then
+    echo "Usage: ./install.sh your.git@email.com git_username"
+    exit 1
+fi
+
+# Check Internet access.
 if ! [ "`ping -c 1 github.com`" ]; then
     echo "Internet access: Fail"
     echo "This script requres internet access."
@@ -48,7 +49,7 @@ git pull
 mkdir -p .config/i3
 
 # Add custom repository for installation of Yaourt.
-if ! grep "\[archlinux\]" /etc/pacman.conf ; then
+if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
     echo "" >> /etc/pacman.conf
     echo "# Add custom repository for installation of Yaourt." >> /etc/pacman.conf
     echo "[archlinuxfr]" >> /etc/pacman.conf
@@ -59,6 +60,6 @@ fi
 
 pacman -Sy --noconfirm yaourt
 sudo pacman -S --noconfirm dmenu lxappearance feh
-yaourt -S --noconfirm i3-gaps-git
+sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git
 sudo pacman -S --noconfirm vim tmux
 

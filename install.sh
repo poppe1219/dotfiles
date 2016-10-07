@@ -11,12 +11,6 @@ if test $UID != "0" ; then
 fi
 echo "Root access: Ok"
 
-# Check parameters.
-if [ $# -ne 2 ]; then
-    echo "Usage: ./install.sh your.git@email.com git_username"
-    exit 1
-fi
-
 # Check Internet access.
 if ! [ "`ping -c 1 github.com`" ]; then
     echo "Internet access: Fail"
@@ -24,6 +18,12 @@ if ! [ "`ping -c 1 github.com`" ]; then
     exit 1
 fi
 echo "Internet access: Ok"
+
+# Check parameters.
+if [ $# -ne 2 ]; then
+    echo "Usage: ./install.sh your.git@email.com git_username"
+    exit 1
+fi
 
 HOME_PATH='/home/'
 HOME_PATH+=$SUDO_USER

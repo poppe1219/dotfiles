@@ -34,20 +34,20 @@ sudo pacman -S --noconfirm git
 
 # Setup Git
 # =========
-git config --global user.email $1
-git config --global user.name $2
+sudo -u $SUDO_USER git config --global user.email $1
+sudo -u $SUDO_USER git config --global user.name $2
 
 # Get the dotfiles repo, if not already cloned.
-mkdir -p git/
-cd git
+mkdir -p "$HOME_PATH/git"
+cd "$HOME_PATH/git"
 if [ ! -d dotfiles ]; then
     git clone git@github.com:poppe1219/dotfiles.git
 fi
-cd dotfiles
+cd "$HOME_PATH/git/dotfiles"
 git pull
 
-cd ~
-mkdir -p .config/i3
+cd $HOME_PATH
+mkdir -p "$HOME_PATH/.config/i3"
 
 # Add custom repository for installation of Yaourt.
 if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
@@ -62,8 +62,8 @@ fi
 pacman -Sy --noconfirm yaourt
 pacman -S --noconfirm dmenu lxappearance feh
 sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git
-cp /etc/X11/xinit/xinitrc ~/.xinitrc
-echo "exec i3 > ~/.i3.log 2>&1" >> ~/.xinitrc
+cp /etc/X11/xinit/xinitrc "$HOME_PATH/.xinitrc"
+echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 pacman -S --noconfirm vim tmux
 
-sudo chown -R $2:users git .config .xinitrc
+sudo chown -R $2:users "$HOME_PATH/git" "$HOME_PATH/.config" "$HOME_PATH/.xinitrc"

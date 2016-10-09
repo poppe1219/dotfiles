@@ -41,7 +41,7 @@ git config --global user.name $2
 mkdir -p git/
 cd git
 if [ ! -d dotfiles ]; then
-    git clone https://github.com/poppe1219/dotfiles
+    git clone git@github.com:poppe1219/dotfiles.git
 fi
 cd dotfiles
 git pull

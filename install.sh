@@ -59,7 +59,10 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 pacman -Sy --noconfirm yaourt
-sudo pacman -S --noconfirm dmenu lxappearance feh
+pacman -S --noconfirm dmenu lxappearance feh
 sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git
-sudo pacman -S --noconfirm vim tmux
+cp /etc/X11/xinit/xinitrc ~/.xinitrc
+echo "exec i3 > ~/.i3.log 2>&1" >> ~/.xinitrc
+pacman -S --noconfirm vim tmux
 
+sudo chown -R $2:users git .config .xinitrc

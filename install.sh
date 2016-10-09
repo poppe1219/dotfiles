@@ -46,6 +46,7 @@ fi
 cd dotfiles
 git pull
 
+cd ~
 mkdir -p .config/i3
 
 # Add custom repository for installation of Yaourt.

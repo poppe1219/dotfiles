@@ -40,7 +40,7 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 pacman -Sy --noconfirm yaourt
-pacman -S --noconfirm dmenu lxappearance feha sddm xterm
+pacman -S --noconfirm dmenu lxappearance feh sddm xterm
 sudo systemctl enable sddm.service
 sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git 
 cp /etc/X11/xinit/xinitrc "$HOME_PATH/.xinitrc"

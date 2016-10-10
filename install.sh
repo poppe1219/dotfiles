@@ -26,7 +26,7 @@ cd $HOME_PATH
 sudo pacman -Syu --noconfirm
 
 mkdir -p "$HOME_PATH/.config/i3"
-ln -s "$HOME_PATH/git/dotfiles/.confg/i3/config" config
+ln -s "$HOME_PATH/git/dotfiles/.confg/i3/config" .confg/i3/config
 chown -R "$SUDO_USER:users" "$HOME_PATH/.config"
 
 # Add custom repository for installation of Yaourt.

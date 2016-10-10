@@ -42,10 +42,10 @@ mkdir -p "$HOME_PATH/git"
 sudo chown -R $2:users "$HOME_PATH/git"
 cd "$HOME_PATH/git"
 if [ ! -d dotfiles ]; then
-    git clone git@github.com:poppe1219/dotfiles.git
+    sudo -u $SUDO_USER git clone git@github.com:poppe1219/dotfiles.git
 fi
 cd "$HOME_PATH/git/dotfiles"
-git pull
+sudo -u $SUDO_USER git pull
 
 cd $HOME_PATH
 mkdir -p "$HOME_PATH/.config/i3"

@@ -47,7 +47,7 @@ sudo systemctl enable sddm.service
 sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git 
 cp /etc/X11/xinit/xinitrc "$HOME_PATH/.xinitrc"
 echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
+chown -R "$SUDO_USER:users" "$HOME_PATH/.xinitrc"
+
 pacman -S --noconfirm vim tmux
 
-sudo chown -R $2:users "$HOME_PATH/.config" "$HOME_PATH/.xinitrc"
-sudo shutdown -r 0

@@ -26,6 +26,20 @@ cd $HOME_PATH
 sudo pacman -Syu --noconfirm
 
 mkdir -p "$HOME_PATH/.config/i3"
+mkdir -p "$HOME_PATH/Downloads"
+mkdir -p "$HOME_PATH/.fonts"
+
+cd Downloads
+wget https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
+unzip master.zip
+cd YosemiteSanFranciscoFont
+mv *.ttf "$SUDO_USER/.fonts/"
+cd ..
+rm -rf YosemiteSanFranciscoFont
+rm -f master.zip
+
+chown -R "$SUDO_USER:users" "$HOME_PATH/.config" "$HOME_PATH/Downloads" "$HOME_PATH/.fonts"
+
 cd "$HOME_PATH/.config/i3"
 ln -s "$HOME_PATH/git/dotfiles/.config/i3/config" config
 chown -R "$SUDO_USER:users" "$HOME_PATH/.config"
@@ -42,9 +56,13 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 pacman -Sy --noconfirm yaourt
-pacman -S --noconfirm dmenu lxappearance feh sddm xterm
+# Default install.
+pacman -S --noconfirm dmenu lxappearance feh sddm xterm urxvt
+# Riced install.
+pacman -S --noconfirm lxappearance feh sddm urxvt
+
 sudo systemctl enable sddm.service
-sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git 
+sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git i3lock i3blocks
 cp /etc/X11/xinit/xinitrc "$HOME_PATH/.xinitrc"
 echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 chown -R "$SUDO_USER:users" "$HOME_PATH/.xinitrc"

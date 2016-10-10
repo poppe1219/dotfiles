@@ -39,6 +39,7 @@ sudo -u $SUDO_USER git config --global user.name $2
 
 # Get the dotfiles repo, if not already cloned.
 mkdir -p "$HOME_PATH/git"
+sudo chown -R $2:users "$HOME_PATH/git"
 cd "$HOME_PATH/git"
 if [ ! -d dotfiles ]; then
     git clone git@github.com:poppe1219/dotfiles.git
@@ -66,4 +67,4 @@ cp /etc/X11/xinit/xinitrc "$HOME_PATH/.xinitrc"
 echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 pacman -S --noconfirm vim tmux
 
-sudo chown -R $2:users "$HOME_PATH/git" "$HOME_PATH/.config" "$HOME_PATH/.xinitrc"
+sudo chown -R $2:users "$HOME_PATH/.config" "$HOME_PATH/.xinitrc"

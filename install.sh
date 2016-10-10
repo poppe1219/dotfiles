@@ -27,7 +27,7 @@ sudo pacman -Syu --noconfirm
 
 mkdir -p "$HOME_PATH/.config/i3"
 cd "$HOME_PATH/.config/i3"
-ln -s "$HOME_PATH/git/dotfiles/.confg/i3/config" config
+ln -s "$HOME_PATH/git/dotfiles/.config/i3/config" config
 chown -R "$SUDO_USER:users" "$HOME_PATH/.config"
 cd "$HOME_PATH"
 

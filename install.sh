@@ -19,35 +19,12 @@ if ! [ "`ping -c 1 github.com`" ]; then
 fi
 echo "Internet access: Ok"
 
-# Check parameters.
-if [ $# -ne 2 ]; then
-    echo "Usage: ./install.sh your.git@email.com git_username"
-    exit 1
-fi
-
 HOME_PATH='/home/'
 HOME_PATH+=$SUDO_USER
 cd $HOME_PATH
 
 sudo pacman -Syu --noconfirm
-sudo pacman -S --noconfirm git
 
-# Setup Git
-# =========
-sudo -u $SUDO_USER git config --global user.email $1
-sudo -u $SUDO_USER git config --global user.name $2
-
-# Get the dotfiles repo, if not already cloned.
-mkdir -p "$HOME_PATH/git"
-sudo chown -R $2:users "$HOME_PATH/git"
-cd "$HOME_PATH/git"
-if [ ! -d dotfiles ]; then
-    sudo -u $SUDO_USER git clone git@github.com:poppe1219/dotfiles.git
-fi
-cd "$HOME_PATH/git/dotfiles"
-sudo -u $SUDO_USER git pull
-
-cd $HOME_PATH
 mkdir -p "$HOME_PATH/.config/i3"
 
 # Add custom repository for installation of Yaourt.

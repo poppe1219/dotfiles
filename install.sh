@@ -26,8 +26,10 @@ cd $HOME_PATH
 sudo pacman -Syu --noconfirm
 
 mkdir -p "$HOME_PATH/.config/i3"
-ln -s "$HOME_PATH/git/dotfiles/.confg/i3/config" .confg/i3/config
+cd "$HOME_PATH/.config/i3"
+ln -s "$HOME_PATH/git/dotfiles/.confg/i3/config" config
 chown -R "$SUDO_USER:users" "$HOME_PATH/.config"
+cd "$HOME_PATH"
 
 # Add custom repository for installation of Yaourt.
 if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
@@ -48,3 +50,4 @@ echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 pacman -S --noconfirm vim tmux
 
 sudo chown -R $2:users "$HOME_PATH/.config" "$HOME_PATH/.xinitrc"
+sudo shutdown -r 0

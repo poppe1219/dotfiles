@@ -66,7 +66,7 @@ cd Downloads
 wget -q https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
 unzip master.zip
 cd YosemiteSanFranciscoFont-master
-mv *.ttf "$SUDO_USER/.fonts/"
+mv *.ttf "$HOME_PATH/.fonts/"
 cd ..
 rm -rf YosemiteSanFranciscoFont-master
 rm -f master.zip

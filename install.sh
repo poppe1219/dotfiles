@@ -26,6 +26,7 @@ cd $HOME_PATH
 sudo pacman -Syu --noconfirm
 
 mkdir -p "$HOME_PATH/.config/i3"
+mkdir -p "$HOME_PATH/.config/gtk-3.0"
 mkdir -p "$HOME_PATH/Downloads"
 mkdir -p "$HOME_PATH/.fonts"
 
@@ -40,9 +41,13 @@ rm -f master.zip
 
 chown -R "$SUDO_USER:users" "$HOME_PATH/.config" "$HOME_PATH/Downloads" "$HOME_PATH/.fonts"
 
+cd "$HOME_PATH"
+ln -s "$HOME_PATH/git/dotfiles/.gtkrc-2.0" .gtkrc-2.0
 cd "$HOME_PATH/.config/i3"
 ln -s "$HOME_PATH/git/dotfiles/.config/i3/config" config
-chown -R "$SUDO_USER:users" "$HOME_PATH/.config"
+cd "$HOME_PATH/.config/gtk-3.0"
+ln -s "$HOME_PATH/git/dotfiles/.config/gtk-3.0/settings.ini" settings.ini
+chown -R "$SUDO_USER:users" "$HOME_PATH/.config" "$HOME_PATH/.gtkrc-2.0"
 cd "$HOME_PATH"
 
 # Add custom repository for installation of Yaourt.

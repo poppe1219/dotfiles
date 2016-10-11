@@ -52,8 +52,8 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 pacman -Sy --noconfirm yaourt
-pacman -S --noconfirm lxappearance feh lightdm xterm rofi rxvt-unicode
-#sudo systemctl enable lightdm.service
+pacman -S --noconfirm lxappearance feh sddm xterm rofi rxvt-unicode
+sudo systemctl enable sddm.service
 sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git i3lock
 touch "$HOME_PATH/.xinitrc"
 echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"

@@ -52,7 +52,7 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 pacman -Sy --noconfirm yaourt
-pacman -S --noconfirm lxappearance feh lightdm xterm rofi urxvt
+pacman -S --noconfirm lxappearance feh lightdm xterm rofi rxvt-unicode
 sudo systemctl enable lightdm.service
 sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git i3lock
 touch "$HOME_PATH/.xinitrc"
@@ -65,10 +65,10 @@ sudo -u $SUDO_USER yaourt -S --noconfirm gtk-theme-arc-grey-git
 cd Downloads
 wget -q https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
 unzip master.zip
-cd YosemiteSanFranciscoFont
+cd YosemiteSanFranciscoFont-master
 mv *.ttf "$SUDO_USER/.fonts/"
 cd ..
-rm -rf YosemiteSanFranciscoFont
+rm -rf YosemiteSanFranciscoFont-master
 rm -f master.zip
 
 chown -R "$SUDO_USER:users" $HOME_PATH

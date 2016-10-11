@@ -64,4 +64,5 @@ echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 
 chown -R $SUDO_USER:users "$HOME_PATH/.xinitrc"
 pacman -S --noconfirm vim tmux
+sudo -u $SUDO_USER yaourt -S --noconfirm gtk-theme-arc-grey-git
 

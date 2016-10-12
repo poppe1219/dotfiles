@@ -54,7 +54,7 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 pacman -Sy --noconfirm yaourt
-pacman -S --noconfirm lxappearance feh sddm xterm rofi rxvt-unicode xorg-xrdb firefox tig vim tmux
+pacman -S --noconfirm lxappearance feh sddm rofi rxvt-unicode xorg-xrdb firefox tig vim tmux
 systemctl enable sddm.service
 sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git i3lock ttf-iosevka zsh
 chsh -s /bin/zsh $SUDO_USER  # Set default shell to zsh.
@@ -73,11 +73,11 @@ echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 #rm -f master.zip
 
 sudo -u $SUDO_USER sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-rm -f ".zshrc"
-ln -s "$HOME_PATH/git/dotfiles/.zshrc" .zshrc
+rm -f "$HOME_PATH/.zshrc"
+ln -s "$HOME_PATH/git/dotfiles/.zshrc" "$HOME_PATH/.zshrc"
 
 cd "$HOME_PATH/.wallpapers"
-wget https://wallpaperscraft.com/image/frog_reflection_vector_24442_3840x2400.jpg
+sudo -u $SUDO_USER wget https://wallpaperscraft.com/image/frog_reflection_vector_24442_3840x2400.jpg
 cd $HOME_PATH
 sudo -u $SUDO_USER feh --bg-scale "$HOME_PATH/.wallpapers/frog_reflection_vector_24442_3840x2400.jpg"
 

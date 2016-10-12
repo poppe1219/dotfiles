@@ -29,6 +29,7 @@ mkdir -p "$HOME_PATH/.config/i3"
 mkdir -p "$HOME_PATH/.config/gtk-3.0"
 mkdir -p "$HOME_PATH/Downloads"
 mkdir -p "$HOME_PATH/.fonts"
+mkdir -p "$HOME_PATH/.wallpapers"
 
 chown -R "$SUDO_USER:users" $HOME_PATH
 
@@ -71,9 +72,12 @@ cd $HOME_PATH
 rm -rf YosemiteSanFranciscoFont-master
 rm -f master.zip
 
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+sudo -u $SUDO_USER sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 chsh -s /usr/bin/zsh $SUDO_USER
-# feh  --bg-scale '/home/poppe1219/Downloads/vector-of-geometric-lines-for-background-4821.jpg' 
+cd .wallpapers
+wget https://wallpaperscraft.com/image/frog_reflection_vector_24442_3840x2400.jpg
+cd $HOME_PATH
+feh  --bg-scale '~/.wallpapers/frog_reflection_vector_24442_3840x2400.jpg' 
 
 chown -R "$SUDO_USER:users" $HOME_PATH
 

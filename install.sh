@@ -54,35 +54,40 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 pacman -Sy --noconfirm yaourt
-pacman -S --noconfirm lxappearance feh sddm rofi rxvt-unicode xorg-xrdb firefox tig vim tmux
+pacman -S --noconfirm lxappearance feh sddm rofi rxvt-unicode vim
 systemctl enable sddm.service
 sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git i3lock ttf-iosevka zsh
 chsh -s /bin/zsh $SUDO_USER  # Set default shell to zsh.
 touch "$HOME_PATH/.xinitrc"
 echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 
+# Activate these installations when the script is working properly.
+# Large and time consuming packages to download and install.
+#pacman -S --noconfirm tmux firefox tig
 #sudo -u $SUDO_USER yaourt -S --noconfirm gtk-theme-arc-grey-git
 
-#cd Downloads
-#wget -q https://github.com/supermarin/YosemiteSanFranciscoFont/archive/master.zip
-#unzip master.zip
-#cd YosemiteSanFranciscoFont-master
-#mv *.ttf "$HOME_PATH/.fonts/"
-#cd $HOME_PATH
-#rm -rf YosemiteSanFranciscoFont-master
-#rm -f master.zip
-
 sudo -u $SUDO_USER sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+echo Oh-my-zsh installed
+echo `ls -la`
+sleep 2
+echo Removing "$HOME_PATH/.zshrc"
 rm -f "$HOME_PATH/.zshrc"
+sleep 2
+echo linking ln -s "$HOME_PATH/git/dotfiles/.zshrc" "$HOME_PATH/.zshrc"
 ln -s "$HOME_PATH/git/dotfiles/.zshrc" "$HOME_PATH/.zshrc"
+echo `ls -la`
+sleep 2
 
 cd "$HOME_PATH/.wallpapers"
+echo `pwd`
+echo Downloading wallpaper
 sudo -u $SUDO_USER wget https://wallpaperscraft.com/image/frog_reflection_vector_24442_3840x2400.jpg
+echo `ls -la`
+sleep 2
 cd $HOME_PATH
+echo `pwd`
+echo Setting wallpaper
 sudo -u $SUDO_USER feh --bg-scale "$HOME_PATH/.wallpapers/frog_reflection_vector_24442_3840x2400.jpg"
-
+sleep 2
 chown -R "$SUDO_USER:users" $HOME_PATH
 reboot
-
-
-

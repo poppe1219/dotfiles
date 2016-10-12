@@ -35,6 +35,7 @@ chown -R "$SUDO_USER:users" $HOME_PATH
 
 cd "$HOME_PATH"
 ln -s "$HOME_PATH/git/dotfiles/.gtkrc-2.0" .gtkrc-2.0
+ln -s "$HOME_PATH/git/dotfiles/.zshrc" .zshrc
 cd "$HOME_PATH/.config/i3"
 ln -s "$HOME_PATH/git/dotfiles/.config/i3/config" config
 cd "$HOME_PATH/.config/gtk-3.0"
@@ -77,7 +78,7 @@ chsh -s /usr/bin/zsh $SUDO_USER
 cd .wallpapers
 wget https://wallpaperscraft.com/image/frog_reflection_vector_24442_3840x2400.jpg
 cd $HOME_PATH
-feh  --bg-scale '~/.wallpapers/frog_reflection_vector_24442_3840x2400.jpg' 
+sudo -u $SUDO_USER feh --bg-scale "$HOME_PATH/.wallpapers/frog_reflection_vector_24442_3840x2400.jpg"
 
 chown -R "$SUDO_USER:users" $HOME_PATH
 

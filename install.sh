@@ -52,9 +52,9 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 pacman -Sy --noconfirm yaourt
-pacman -S --noconfirm lxappearance feh sddm xterm rofi rxvt-unicode
+pacman -S --noconfirm lxappearance feh sddm xterm rofi rxvt-unicode xorg-xrdb
 sudo systemctl enable sddm.service
-sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git i3lock
+sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git i3lock ttf-iosevka zsh
 touch "$HOME_PATH/.xinitrc"
 echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 
@@ -71,6 +71,12 @@ cd ..
 rm -rf YosemiteSanFranciscoFont-master
 rm -f master.zip
 
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+# feh  --bg-scale '/home/poppe1219/Downloads/vector-of-geometric-lines-for-background-4821.jpg' 
+
 chown -R "$SUDO_USER:users" $HOME_PATH
+
+
 
 

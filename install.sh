@@ -95,7 +95,7 @@ echo `pwd`
 echo Setting wallpaper
 touch .fehbg
 echo "#!/bin/sh" >> .fehbg
-echo "feh --bg-scale $HOME_PATH/.wallpapers/frog_reflection_vector_24442_3840x2400.jpg" >> .fehbg
+echo "feh --bg-scale ~/.wallpapers/frog_reflection_vector_24442_3840x2400.jpg" >> .fehbg
 chmod +x "$HOME_PATH/.fehbg"
 chown -R "$SUDO_USER:users" $HOME_PATH
 echo "Rebooting..."

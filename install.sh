@@ -56,7 +56,7 @@ fi
 pacman -Sy --noconfirm yaourt
 pacman -S --noconfirm lxappearance feh sddm rofi rxvt-unicode vim dmidecode
 systemctl enable sddm.service
-sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git i3lock ttf-iosevka zsh
+sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git i3status ttf-iosevka zsh
 chsh -s /bin/zsh $SUDO_USER  # Set default shell to zsh.
 touch "$HOME_PATH/.xinitrc"
 echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"

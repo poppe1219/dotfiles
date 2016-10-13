@@ -37,6 +37,8 @@ chown -R "$SUDO_USER:users" $HOME_PATH
 cd "$HOME_PATH"
 ln -s "$HOME_PATH/git/dotfiles/.gtkrc-2.0" .gtkrc-2.0
 ln -s "$HOME_PATH/git/dotfiles/.Xresources" .Xresources
+cd "$HOME_PATH/.config/"
+ln -s "$HOME_PATH/git/dotfiles/.config/compton.conf" compton.conf
 cd "$HOME_PATH/.config/i3"
 ln -s "$HOME_PATH/git/dotfiles/.config/i3/config" config
 cd "$HOME_PATH/.config/gtk-3.0"

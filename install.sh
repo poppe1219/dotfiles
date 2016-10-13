@@ -72,34 +72,18 @@ fi
 
 # Activate these installations when the script is working properly.
 # Large and time consuming packages to download and install.
-#pacman -S --noconfirm tmux firefox tig
+#pacman -S --noconfirm tmux firefox tig htop
 #sudo -u $SUDO_USER yaourt -S --noconfirm gtk-theme-arc-grey-git
 
 sudo -u $SUDO_USER git clone git@github.com:robbyrussell/oh-my-zsh.git "$HOME_PATH/.oh-my-zsh"
-echo Oh-my-zsh installed
-echo `ls -la`
-sleep 2
-echo Removing "$HOME_PATH/.zshrc"
 rm -f "$HOME_PATH/.zshrc"
-sleep 2
-echo linking ln -s "$HOME_PATH/git/dotfiles/.zshrc" "$HOME_PATH/.zshrc"
 ln -s "$HOME_PATH/git/dotfiles/.zshrc" "$HOME_PATH/.zshrc"
-echo `ls -la`
-sleep 2
 
 cd "$HOME_PATH/.wallpapers"
-echo `pwd`
-echo Downloading wallpaper
 sudo -u $SUDO_USER wget https://wallpaperscraft.com/image/frog_reflection_vector_24442_3840x2400.jpg
-echo `ls -la`
-sleep 2
 cd $HOME_PATH
-echo `pwd`
-echo Setting wallpaper
 ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/bg-saved.cfg" "$HOME_PATH/.config/nitrogen/bg-saved.cfg"
 ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/nitrogen.cfg" "$HOME_PATH/.config/nitrogen/nitrogen.cfg"
 # nitrogen --restore is run in the i3 config, since X has to be started for it to work.
 chown -R "$SUDO_USER:users" $HOME_PATH
-echo "Rebooting..."
-sleep 9
 reboot

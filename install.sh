@@ -67,7 +67,7 @@ echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 #sudo -u $SUDO_USER yaourt -S --noconfirm gtk-theme-arc-grey-git
 
 #sudo -u $SUDO_USER sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-sudo -u $SUDO_USER git clone git@github.com:robbyrussel/oh-my-zsh.git "$HOME_PATH/.oh-my-zsh"
+sudo -u $SUDO_USER git clone git@github.com:robbyrussell/oh-my-zsh.git "$HOME_PATH/.oh-my-zsh"
 echo Oh-my-zsh installed
 echo `ls -la`
 sleep 2

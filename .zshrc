@@ -84,5 +84,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-EXPORT EDITOR="vim"
+export VISUAL="vim"
+export EDITOR=$VISUAL
 

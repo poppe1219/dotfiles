@@ -61,7 +61,7 @@ chsh -s /bin/zsh $SUDO_USER  # Set default shell to zsh.
 touch "$HOME_PATH/.xinitrc"
 echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 
-SYS_PROD_NAME=`dmidecode -s system-product-name`
+SYS_PROD_NAME=`sudo dmidecode -s system-product-name`
 if test $SYS_PROD_NAME eq "VirtualBox" ; then
     echo "VirtualBox detected, installing guest additions."
     pacman -S virtualbox-guest-modules-arch
@@ -96,6 +96,7 @@ echo Setting wallpaper
 touch .fehbg
 echo "#!bin/sh" >> .fehbg
 echo "feh --bg-scale $HOME_PATH/.wallpapers/frog_reflection_vector_24442_3840x2400.jpg" >> .fehbg
+chmod +x "$HOME_PATH/.fehbg"
 chown -R "$SUDO_USER:users" $HOME_PATH
 echo "Rebooting..."
 sleep 9

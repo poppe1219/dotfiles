@@ -62,7 +62,7 @@ touch "$HOME_PATH/.xinitrc"
 echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 
 SYS_PROD_NAME=`sudo dmidecode -s system-product-name`
-if test $SYS_PROD_NAME eq "VirtualBox" ; then
+if [ $SYS_PROD_NAME = "VirtualBox" ] ; then
     echo "VirtualBox detected, installing guest additions."
     pacman -S virtualbox-guest-modules-arch
 fi

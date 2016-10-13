@@ -54,7 +54,7 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 pacman -Sy --noconfirm yaourt
-pacman -S --noconfirm lxappearance feh sddm rofi rxvt-unicode vim dmidecode
+pacman -S --noconfirm lxappearance feh sddm rofi rxvt-unicode vim dmidecode xorg-xrdb
 systemctl enable sddm.service
 sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git i3status ttf-iosevka zsh
 chsh -s /bin/zsh $SUDO_USER  # Set default shell to zsh.

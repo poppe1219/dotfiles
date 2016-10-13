@@ -54,7 +54,7 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 pacman -Sy --noconfirm yaourt
-pacman -S --noconfirm lxappearance feh sddm rofi rxvt-unicode vim dmidecode xorg-xrdb
+pacman -S --noconfirm lxappearance nitrogen sddm rofi rxvt-unicode vim dmidecode xorg-xrdb
 systemctl enable sddm.service
 sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git i3status ttf-iosevka zsh
 chsh -s /bin/zsh $SUDO_USER  # Set default shell to zsh.
@@ -93,10 +93,7 @@ sleep 2
 cd $HOME_PATH
 echo `pwd`
 echo Setting wallpaper
-touch .fehbg
-echo "#!/bin/sh" >> .fehbg
-echo "feh --bg-scale ~/.wallpapers/frog_reflection_vector_24442_3840x2400.jpg" >> .fehbg
-chmod +x "$HOME_PATH/.fehbg"
+nitrogen --restore  # Read the nitrogen config to set background.
 chown -R "$SUDO_USER:users" $HOME_PATH
 echo "Rebooting..."
 sleep 9

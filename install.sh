@@ -64,7 +64,7 @@ echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 SYS_PROD_NAME=`sudo dmidecode -s system-product-name`
 if [ $SYS_PROD_NAME = "VirtualBox" ] ; then
     echo "VirtualBox detected, installing guest additions."
-    pacman -S virtualbox-guest-modules-arch
+    yes | pacman -S virtualbox-guest-modules-arch  # Force yes on all answers.
 fi
 
 # Activate these installations when the script is working properly.

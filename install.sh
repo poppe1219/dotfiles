@@ -93,7 +93,9 @@ sleep 2
 cd $HOME_PATH
 echo `pwd`
 echo Setting wallpaper
-sudo -u $SUDO_USER feh --bg-scale "$HOME_PATH/.wallpapers/frog_reflection_vector_24442_3840x2400.jpg"
+touch .fehbg
+echo "#!bin/sh" >> .fehbg
+echo "feh --bg-scale $HOME_PATH/.wallpapers/frog_reflection_vector_24442_3840x2400.jpg" >> .fehbg
 chown -R "$SUDO_USER:users" $HOME_PATH
 echo "Rebooting..."
 sleep 9

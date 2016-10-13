@@ -12,7 +12,7 @@
 
 Xft.dpi:                        109
 URxvt*termName:                 rxvt-256color
-URxvt*font:                     xft:Iosevka:style=Bold:pixelsize=11
+URxvt*font:                     xft:Iosevka:style=Bold:pixelsize=13
 URxvt.depth:                    32
 URxvt*lineSpace:                0
 URxvt.letterSpace:              0

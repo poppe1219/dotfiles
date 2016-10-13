@@ -27,6 +27,7 @@ sudo pacman -Syu --noconfirm
 
 mkdir -p "$HOME_PATH/.config/i3"
 mkdir -p "$HOME_PATH/.config/gtk-3.0"
+mkdir -p "$HOME_PATH/.config/nitrogen"
 mkdir -p "$HOME_PATH/Downloads"
 mkdir -p "$HOME_PATH/.fonts"
 mkdir -p "$HOME_PATH/.wallpapers"
@@ -93,6 +94,8 @@ sleep 2
 cd $HOME_PATH
 echo `pwd`
 echo Setting wallpaper
+ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/bg-saved.cfg" "$HOME_PATH/.config/nitrogen/bg-saved.cfg"
+ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/nitrogen.cfg" "$HOME_PATH/.config/nitrogen/nitrogen.cfg"
 nitrogen --restore  # Read the nitrogen config to set background.
 chown -R "$SUDO_USER:users" $HOME_PATH
 echo "Rebooting..."

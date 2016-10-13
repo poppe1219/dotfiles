@@ -96,7 +96,7 @@ echo `pwd`
 echo Setting wallpaper
 ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/bg-saved.cfg" "$HOME_PATH/.config/nitrogen/bg-saved.cfg"
 ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/nitrogen.cfg" "$HOME_PATH/.config/nitrogen/nitrogen.cfg"
-nitrogen --restore  # Read the nitrogen config to set background.
+# nitrogen --restore is run in the i3 config, since X has to be started for it to work.
 chown -R "$SUDO_USER:users" $HOME_PATH
 echo "Rebooting..."
 sleep 9

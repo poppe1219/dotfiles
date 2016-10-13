@@ -66,7 +66,8 @@ echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 #pacman -S --noconfirm tmux firefox tig
 #sudo -u $SUDO_USER yaourt -S --noconfirm gtk-theme-arc-grey-git
 
-sudo -u $SUDO_USER sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+#sudo -u $SUDO_USER sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+sudo -u $SUDO_USER git clone git@github.com:robbyrussel/oh-my-zsh.git "$HOME_PATH/.oh-my-zsh"
 echo Oh-my-zsh installed
 echo `ls -la`
 sleep 2
@@ -88,6 +89,7 @@ cd $HOME_PATH
 echo `pwd`
 echo Setting wallpaper
 sudo -u $SUDO_USER feh --bg-scale "$HOME_PATH/.wallpapers/frog_reflection_vector_24442_3840x2400.jpg"
-sleep 2
 chown -R "$SUDO_USER:users" $HOME_PATH
+echo "Rebooting..."
+sleep 9
 reboot

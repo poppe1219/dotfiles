@@ -54,19 +54,24 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 pacman -Sy --noconfirm yaourt
-pacman -S --noconfirm lxappearance feh sddm rofi rxvt-unicode vim
+pacman -S --noconfirm lxappearance feh sddm rofi rxvt-unicode vim dmidecode
 systemctl enable sddm.service
 sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git i3lock ttf-iosevka zsh
 chsh -s /bin/zsh $SUDO_USER  # Set default shell to zsh.
 touch "$HOME_PATH/.xinitrc"
 echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 
+SYS_PROD_NAME=`dmidecode -s system-product-name`
+if test $SYS_PROD_NAME eq "VirtualBox" ; then
+    echo "VirtualBox detected, installing guest additions."
+    pacman -S virtualbox-guest-modules-arch
+fi
+
 # Activate these installations when the script is working properly.
 # Large and time consuming packages to download and install.
 #pacman -S --noconfirm tmux firefox tig
 #sudo -u $SUDO_USER yaourt -S --noconfirm gtk-theme-arc-grey-git
 
-#sudo -u $SUDO_USER sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 sudo -u $SUDO_USER git clone git@github.com:robbyrussell/oh-my-zsh.git "$HOME_PATH/.oh-my-zsh"
 echo Oh-my-zsh installed
 echo `ls -la`

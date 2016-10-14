@@ -80,7 +80,7 @@ rm -f "$HOME_PATH/.zshrc"
 ln -s "$HOME_PATH/git/dotfiles/.zshrc" "$HOME_PATH/.zshrc"
 
 cd "$HOME_PATH/.wallpapers"
-sudo -u $SUDO_USER wget https://wallpaperscraft.com/image/frog_reflection_vector_24442_3840x2400.jpg
+sudo -u $SUDO_USER wget http://www.psdgraphics.com/file/red-grunge-sunrays.jpg
 cd $HOME_PATH
 ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/bg-saved.cfg" "$HOME_PATH/.config/nitrogen/bg-saved.cfg"
 ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/nitrogen.cfg" "$HOME_PATH/.config/nitrogen/nitrogen.cfg"

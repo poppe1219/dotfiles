@@ -48,3 +48,16 @@ URxvt.geometry: 150x30+430+250
 *color14:     cyn
 *color7:      wht
 *color15:     wht
+
+rofi.color-enabled: true
+rofi.fullscreen: true
+rofi.padding: 300
+rofi.opacity: 80
+rofi.lines: 5
+rofi.eh: 1.5
+rofi.font: Iovsenka Bold 14
+rofi.color-window: #393939, #393939, #268bd2
+rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
+rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
+rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
+

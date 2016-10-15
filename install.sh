@@ -57,7 +57,7 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 pacman -Sy --noconfirm yaourt
-pacman -S --noconfirm lxappearance nitrogen sddm rofi rxvt-unicode vim dmidecode xorg-xrdb compton
+pacman -S --noconfirm lxappearance nitrogen sddm rofi rxvt-unicode vim dmidecode xorg-xrdb compton htop xorg-xprop
 systemctl enable sddm.service
 sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git i3status ttf-iosevka zsh
 chsh -s /bin/zsh $SUDO_USER  # Set default shell to zsh.
@@ -85,5 +85,10 @@ cd $HOME_PATH
 ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/bg-saved.cfg" "$HOME_PATH/.config/nitrogen/bg-saved.cfg"
 ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/nitrogen.cfg" "$HOME_PATH/.config/nitrogen/nitrogen.cfg"
 # nitrogen --restore is run in the i3 config, since X has to be started for it to work.
+
+cd "$HOME_PATH/Downloads"
+sudo -u $SUDO_USER wget https://github.com/google/material-design-icons/releases/download/3.0.1/material-design-icons-3.0.1.zip
+cd $HOME_PATH
+
 chown -R "$SUDO_USER:users" $HOME_PATH
 reboot

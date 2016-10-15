@@ -184,4 +184,5 @@ bar {
 }
 exec_always nitrogen --restore
 exec_always xrdb ~/.Xresources
-exec_always --no-startup-id compton --config ~/compton.conf
+exec_always --no-startup-id compton -CGb
+

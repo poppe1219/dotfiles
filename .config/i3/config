@@ -179,7 +179,7 @@ for_window [class="^.*"] border pixel $bordersize
 bar {
         status_command i3status
         #status_command i3blocks -c ~/.i3/i3blocks.conf
-        font pango: Iosevka 11, Material Design Iconic Font 14
+        font pango: Iosevka 11, Material Design Iconic Font 11
         position top
         strip_workspace_numbers yes
         #bindsym button4 nop

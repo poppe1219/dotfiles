@@ -79,9 +79,9 @@ sudo -u $SUDO_USER git clone git@github.com:robbyrussell/oh-my-zsh.git "$HOME_PA
 rm -f "$HOME_PATH/.zshrc"
 ln -s "$HOME_PATH/git/dotfiles/.zshrc" "$HOME_PATH/.zshrc"
 
-cd "$HOME_PATH/.wallpapers"
-sudo -u $SUDO_USER wget http://hdwallpaperdaily.com/wp-content/uploads/2013/08/chinese-dragon-brown-wallpaper.jpg
-cd $HOME_PATH
+#cd "$HOME_PATH/.wallpapers"
+#sudo -u $SUDO_USER wget http://hdwallpaperdaily.com/wp-content/uploads/2013/08/chinese-dragon-brown-wallpaper.jpg
+#cd $HOME_PATH
 ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/bg-saved.cfg" "$HOME_PATH/.config/nitrogen/bg-saved.cfg"
 ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/nitrogen.cfg" "$HOME_PATH/.config/nitrogen/nitrogen.cfg"
 # nitrogen --restore is run in the i3 config, since X has to be started for it to work.

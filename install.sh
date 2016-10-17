@@ -33,6 +33,7 @@ mkdir -p "$HOME_PATH/.fonts"
 mkdir -p "$HOME_PATH/.wallpapers"
 
 chown -R "$SUDO_USER:users" $HOME_PATH
+chmod +x "$HOME_PATH/git/dotfiles/install_after_x.sh"
 
 cd "$HOME_PATH"
 ln -s "$HOME_PATH/git/dotfiles/.gtkrc-2.0" .gtkrc-2.0

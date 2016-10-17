@@ -58,7 +58,7 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 pacman -Sy --noconfirm yaourt
-pacman -S --noconfirm lxappearance nitrogen sddm rofi rxvt-unicode urxvt-perls vim dmidecode xorg-xrdb compton htop xorg-xprop xorg-xinit
+pacman -S --noconfirm nitrogen rxvt-unicode xorg-xrdb compton xorg-xinit
 systemctl enable sddm.service
 sudo -u $SUDO_USER yaourt -S --noconfirm i3-gaps-git i3status ttf-iosevka zsh
 chsh -s /bin/zsh $SUDO_USER  # Set default shell to zsh.
@@ -70,26 +70,6 @@ if [ $SYS_PROD_NAME = "VirtualBox" ] ; then
     echo "VirtualBox detected, installing guest additions."
     yes | pacman -S virtualbox-guest-modules-arch  # Force yes on all answers.
 fi
-
-# Activate these installations when the script is working properly.
-# Large and time consuming packages to download and install.
-#pacman -S --noconfirm tmux firefox tig htop
-#sudo -u $SUDO_USER yaourt -S --noconfirm gtk-theme-arc-grey-git
-
-sudo -u $SUDO_USER git clone git@github.com:robbyrussell/oh-my-zsh.git "$HOME_PATH/.oh-my-zsh"
-rm -f "$HOME_PATH/.zshrc"
-ln -s "$HOME_PATH/git/dotfiles/.zshrc" "$HOME_PATH/.zshrc"
-
-cd "$HOME_PATH/.wallpapers"
-sudo -u $SUDO_USER wget http://hdwallpaperdaily.com/wp-content/uploads/2013/08/chinese-dragon-brown-wallpaper.jpg
-cd $HOME_PATH
-ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/bg-saved.cfg" "$HOME_PATH/.config/nitrogen/bg-saved.cfg"
-ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/nitrogen.cfg" "$HOME_PATH/.config/nitrogen/nitrogen.cfg"
-# nitrogen --restore is run in the i3 config, since X has to be started for it to work.
-
-cd "$HOME_PATH/.fonts"
-sudo -u $SUDO_USER wget https://github.com/zavoloklom/material-design-iconic-font/blob/2.2.0/dist/fonts/Material-Design-Iconic-Font.ttf
-cd $HOME_PATH
 
 touch "$HOME_PATH/.Xauthority"
 

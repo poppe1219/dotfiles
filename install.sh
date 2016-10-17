@@ -90,6 +90,8 @@ cd "$HOME_PATH/.fonts"
 sudo -u $SUDO_USER wget https://github.com/zavoloklom/material-design-iconic-font/blob/2.2.0/dist/fonts/Material-Design-Iconic-Font.ttf
 cd $HOME_PATH
 
+touch "$HOME_PATH/.Xauthority"
+
 chown -R "$SUDO_USER:users" $HOME_PATH
 
 startx

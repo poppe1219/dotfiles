@@ -15,7 +15,7 @@ rm -f "$HOME_PATH/.zshrc"
 ln -s "$HOME_PATH/git/dotfiles/.zshrc" "$HOME_PATH/.zshrc"
 
 cd "$HOME_PATH/.wallpapers"
-wget http://hdwallpaperdaily.com/wp-content/uploads/2013/08/chinese-dragon-brown-wallpaper.jpg
+wget http://www.vactualpapers.com/web/wallpapers/material-design-hd-wallpaper-no-1337/2560x2560.png -O hexagonal_pattern_2560x2560.png
 cd $HOME_PATH
 ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/bg-saved.cfg" "$HOME_PATH/.config/nitrogen/bg-saved.cfg"
 ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/nitrogen.cfg" "$HOME_PATH/.config/nitrogen/nitrogen.cfg"

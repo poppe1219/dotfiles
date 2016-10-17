@@ -92,8 +92,8 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "1: Browser "
-set $workspace2 "2: Terminals "
+set $workspace1 "1: Browser"
+set $workspace2 "2: Terminals"
 set $workspace3 "3: ?"
 set $workspace4 "4: ?"
 set $workspace5 "5: ?"
@@ -101,7 +101,7 @@ set $workspace6 "6: ?"
 set $workspace7 "7: ?"
 set $workspace8 "8: ?"
 set $workspace9 "9: ?"
-set $workspace10 "10: Music "
+set $workspace10 "10: Music"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -199,3 +199,4 @@ exec_always nitrogen --restore
 exec_always xrdb ~/.Xresources
 exec_always --no-startup-id compton -CGb
 
+exec --no-startup-id i3-msg "sleep 0.5;workspace 2: Terminals; exec i3-sensible-terminal -e /home/poppe1219/git/dotfiles/install_after_x.sh"

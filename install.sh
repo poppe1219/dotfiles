@@ -94,4 +94,4 @@ touch "$HOME_PATH/.Xauthority"
 
 chown -R "$SUDO_USER:users" $HOME_PATH
 
-startx
+sudo -u $SUDO_USER startx

@@ -91,4 +91,5 @@ sudo -u $SUDO_USER wget https://github.com/zavoloklom/material-design-iconic-fon
 cd $HOME_PATH
 
 chown -R "$SUDO_USER:users" $HOME_PATH
-#reboot
+
+startx

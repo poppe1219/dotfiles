@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo pacman -Syu
+htop

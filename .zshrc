@@ -86,4 +86,5 @@ source $ZSH/oh-my-zsh.sh
 
 export VISUAL="vim"
 export EDITOR=$VISUAL
+DEFAULT_USER="poppe1219"
 

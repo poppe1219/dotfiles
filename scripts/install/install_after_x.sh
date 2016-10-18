@@ -32,6 +32,7 @@ wget https://github.com/zavoloklom/material-design-iconic-font/blob/2.2.0/dist/f
 cd $HOME_PATH
 
 sudo pacman -S --noconfirm lxappearance sddm rofi urxvt-perls vim dmidecode htop xorg-xprop tmux tig python-pip
+sudo systemctl enable sddm.service
 sudo pacman -S --noconfirm firefox
 
 yaourt -S --noconfirm gtk-theme-arc-grey-git

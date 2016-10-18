@@ -31,7 +31,7 @@ cd "$HOME_PATH/.fonts"
 wget https://github.com/zavoloklom/material-design-iconic-font/blob/2.2.0/dist/fonts/Material-Design-Iconic-Font.ttf
 cd $HOME_PATH
 
-sudo pacman -S --noconfirm lxappearance sddm rofi urxvt-perls vim dmidecode htop xorg-xprop tmux tig 
+sudo pacman -S --noconfirm lxappearance sddm rofi urxvt-perls vim dmidecode htop xorg-xprop tmux tig python-pip
 sudo pacman -S --noconfirm firefox
 
 yaourt -S --noconfirm gtk-theme-arc-grey-git

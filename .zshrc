@@ -88,3 +88,4 @@ export VISUAL="vim"
 export EDITOR=$VISUAL
 DEFAULT_USER="poppe1219"
 
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

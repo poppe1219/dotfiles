@@ -35,4 +35,4 @@ sudo pacman -S --noconfirm lxappearance sddm rofi urxvt-perls vim dmidecode htop
 sudo systemctl enable sddm.service
 sudo pacman -S --noconfirm firefox
 
-yaourt -S --noconfirm gtk-theme-arc-grey-git
+yaourt -S --noconfirm gtk-theme-arc

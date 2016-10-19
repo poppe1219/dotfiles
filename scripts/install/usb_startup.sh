@@ -17,7 +17,7 @@ SCRIPT_PATH=$(dirname `which $0`)
 SSH_PATH="$SCRIPT_PATH/.ssh"
 HOME_PATH="/home/$SUDO_USER"
 
-echo "$SUDO_USER ALL=(ALL) NOPASSWD: /usr/bin/pacman" |  sudo tee --append /etc/sudoers.d/10-installer > /dev/null
+echo "$SUDO_USER ALL=(ALL) NOPASSWD: /usr/bin/pacman, /usr/bin/systemctl" | sudo tee --append /etc/sudoers.d/10-installer > /dev/null
 
 # Get the ssh keys and config in place.
 echo "Copying ssh settings from $SSH_PATH to $HOME_PATH"

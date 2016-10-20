@@ -14,7 +14,7 @@ cd $HOME_PATH
 xrandr --output `xrandr --listmonitors | grep "0:" | cut -d " " -f 6` --auto
 
 i3-msg split h
-i3-msg exec "i3-sensible-terminal -e top"
+i3-msg exec "urxvt -hold -e ./test1.sh"
 
 sudo pacman -S --noconfirm sddm
 sudo systemctl enable sddm.service

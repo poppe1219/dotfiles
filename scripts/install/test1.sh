@@ -19,14 +19,14 @@ yaourt_packages=(
 for i in "${pacman_packages[@]}"
 do
     echo "Installing package: $i"
-    #urxvt -e sudo pacman -S --noconfirm $i
-    i3-msg "workspace 2: Terminals; exec sleep 0.3 && urxvt -e sudo pacman -S --noconfirm $i"
+    urxvt -e sudo pacman -S --noconfirm $i
+    #i3-msg "workspace 2: Terminals; exec sleep 0.3 && urxvt -e sudo pacman -S --noconfirm $i"
 done
 
 for i in "${yaourt_packages[@]}"
 do
     echo "Installing package: $i"
-    #urxvt -e yaourt -S --noconfirm $i
-    i3-msg "workspace 2: Terminals; exec sleep 0.3 && urxvt -e yaourt -S --noconfirm $i"
+    urxvt -e yaourt -S --noconfirm $i
+    #i3-msg "workspace 2: Terminals; exec sleep 0.3 && urxvt -e yaourt -S --noconfirm $i"
 done
 

@@ -45,4 +45,4 @@ cd "$HOME_PATH/git/dotfiles"
 sudo -u $SUDO_USER git pull
 
 cd $HOME_PATH
-sudo -u $SUDO_USER git/dotfiles/scripts/install/install.sh
+sudo -u $SUDO_USER git/dotfiles/scripts/install/start_install.sh

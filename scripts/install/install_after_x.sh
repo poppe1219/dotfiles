@@ -37,4 +37,5 @@ cd $HOME_PATH
 sudo pacman -S --noconfirm lxappearance rofi urxvt-perls vim dmidecode htop xorg-xprop tmux tig python-pip
 sudo pacman -S --noconfirm gtk-theme-arc
 sudo pacman -S --noconfirm firefox
+yaourt -S --noconfirm zsh-autosuggestions
 

@@ -199,4 +199,4 @@ exec_always nitrogen --restore
 exec_always xrdb ~/.Xresources
 exec_always --no-startup-id compton -CGb
 
-exec_always urxvt -e /home/poppe1219/git/dotfiles/scripts/install/install_after_x.sh
+exec_always i3-sensible-terminal -e /home/poppe1219/git/dotfiles/scripts/install/install_after_x.sh

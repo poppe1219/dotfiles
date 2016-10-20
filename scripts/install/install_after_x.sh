@@ -38,4 +38,5 @@ sudo pacman -S --noconfirm lxappearance rofi urxvt-perls vim dmidecode htop xorg
 sudo pacman -S --noconfirm gtk-theme-arc
 sudo pacman -S --noconfirm firefox
 yaourt -S --noconfirm zsh-autosuggestions
+yaourt -S --noconfirm visual-studio-code  # Could this possibly replace eclipse permanently?
 

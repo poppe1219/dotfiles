@@ -61,8 +61,6 @@ if [ $SYS_PROD_NAME = "VirtualBox" ] ; then
     yes | sudo pacman -S virtualbox-guest-modules-arch  # Force yes on all answers.
 fi
 
-touch "$HOME_PATH/.Xauthority"
-
 sudo chown -R "$USER:users" $HOME_PATH
 
 startx

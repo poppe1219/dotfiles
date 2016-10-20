@@ -16,6 +16,9 @@ xrandr --output `xrandr --listmonitors | grep "0:" | cut -d " " -f 6` --auto
 i3-msg split h
 i3-msg exec "i3-sensible-terminal -e top"
 
+sudo pacman -S --noconfirm sddm
+sudo systemctl enable sddm.service
+
 git clone git@github.com:robbyrussell/oh-my-zsh.git "$HOME_PATH/.oh-my-zsh"
 rm -f "$HOME_PATH/.zshrc"
 ln -s "$HOME_PATH/git/dotfiles/.zshrc" "$HOME_PATH/.zshrc"
@@ -31,8 +34,7 @@ cd "$HOME_PATH/.fonts"
 wget https://github.com/zavoloklom/material-design-iconic-font/blob/2.2.0/dist/fonts/Material-Design-Iconic-Font.ttf
 cd $HOME_PATH
 
-sudo pacman -S --noconfirm lxappearance sddm rofi urxvt-perls vim dmidecode htop xorg-xprop tmux tig python-pip
-sudo systemctl enable sddm.service
+sudo pacman -S --noconfirm lxappearance rofi urxvt-perls vim dmidecode htop xorg-xprop tmux tig python-pip
+sudo pacman -S --noconfirm gtk-theme-arc
 sudo pacman -S --noconfirm firefox
 
-yaourt -S --noconfirm gtk-theme-arc

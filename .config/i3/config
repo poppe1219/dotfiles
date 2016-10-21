@@ -166,7 +166,7 @@ bindsym $mod+r mode "resize"
 gaps inner 15
 gaps outer 10
 
-set $bordersize 0
+set $bordersize 3
 set $gray1 #252525
 set $gray2 #4c9882
 
@@ -187,8 +187,6 @@ for_window [window_role="menu"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [class="com-wolfram-jlink-Reader"] floating enable
 for_window [class="Gifview"] floating enable
-
-border pixel 3
 
 # Start i3bar to display a workspace bar.
 bar {

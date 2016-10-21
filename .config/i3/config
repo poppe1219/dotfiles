@@ -1,5 +1,6 @@
-
 set $mod Mod4
+focus_follows_mouse no
+
 set $base00 #101218
 set $base01 #1f222d
 set $base02 #252936
@@ -165,7 +166,7 @@ bindsym $mod+r mode "resize"
 gaps inner 15
 gaps outer 10
 
-set $bordersize 0
+set $bordersize 5
 set $gray1 #252525
 set $gray2 #4c9882
 
@@ -173,6 +174,7 @@ client.focused            $gray1   $gray2   $gray1   $gray2
 client.focused_inactive   $gray2   $gray1   $gray2   $gray1
 client.unfocused          $gray2   $gray1   $gray2   $gray1
 
+new_window pixel
 for_window [class="^.*"] border pixel $bordersize
 
 # Start i3bar to display a workspace bar.

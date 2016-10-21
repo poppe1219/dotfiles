@@ -15,4 +15,6 @@ set softtabstop=4
 set expandtab
 set smarttab
 
+set listchars=space:·,trail:·,precedes:«,extends:»,tab:▸\ ,eol:↲,nbsp:×
+set list
 

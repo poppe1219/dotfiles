@@ -41,7 +41,7 @@
 
 Xft.dpi:                        109
 URxvt*termName:                 rxvt-256color
-URxvt*font:                     xft:Iosevka:style=Bold:pixelsize=13
+URxvt*font:                     xft:Iosevka:style=Normal:pixelsize=13
 URxvt.depth:                    32
 URxvt*lineSpace:                0
 URxvt.letterSpace:              0
@@ -49,7 +49,7 @@ URxvt.iso14755:                 false
 URxvt.iso14755_52:              false
 URxvt.scrollBar:                false
 URxvt*loginShell:               true
-URxvt.internalBorder:           22
+URxvt.internalBorder:           15
 URxvt.perl-ext-common:          default,clipboard
 URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
 URxvt.keysym.Shift-Control-V:   perl:clipboard:paste

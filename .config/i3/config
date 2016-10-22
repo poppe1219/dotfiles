@@ -182,6 +182,7 @@ client.unfocused          $gray2   $gray1   $gray2   $gray1
 
 for_window [class="^.*"] border pixel $bordersize
 
+
 workspace_auto_back_and_forth yes
 
 for_window [window_role="pop-up"] floating enable
@@ -192,6 +193,7 @@ for_window [window_role="menu"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [class="com-wolfram-jlink-Reader"] floating enable
 for_window [class="Gifview"] floating enable
+for_window [class="Lxappearence"] floating enable
 
 # Start i3bar to display a workspace bar.
 bar {

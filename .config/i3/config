@@ -93,6 +93,10 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Start a floating terminal
+bindsym $mod+Shift+v exec --no-startup-id urxvt -name "floating_urxvt"
+for_window [class="URxvt" instance="floating_urxvt$"] floating toggle
+
 set $workspace1 "1: Browser"
 set $workspace2 "2: Terminals"
 set $workspace3 "3: ?"

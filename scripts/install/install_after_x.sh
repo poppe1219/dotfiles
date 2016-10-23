@@ -28,6 +28,10 @@ else
 	ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/bg-saved.cfg" "$HOME_PATH/.config/nitrogen/bg-saved.cfg"
 	ln -s "$HOME_PATH/git/dotfiles/.config/nitrogen/nitrogen.cfg" "$HOME_PATH/.config/nitrogen/nitrogen.cfg"
 	nitrogen --restore 
+	mv "$HOME_PATH/.gtkrc-2.0" "$HOME_PATH/.gtkrc-2.0.backup"
+	ln -s "$HOME_PATH/git/dotfiles/.gtkrc-2.0" "$HOME_PATH/.gtkrc-2.0"
+	mv "$HOME_PATH/.config/gtk-3.0/settings.ini" "$HOME_PATH/.config/gtk-3.0/settings.ini.backup"
+	ln -s "$HOME_PATH/git/dotfiles/.config/gtk-3.0/settings.ini" "$HOME_PATH/.config/gtk-3.0/settings.ini"
 	
 	cd "$HOME_PATH/.fonts"
 	wget https://github.com/zavoloklom/material-design-iconic-font/blob/2.2.0/dist/fonts/Material-Design-Iconic-Font.ttf

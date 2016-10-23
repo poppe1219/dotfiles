@@ -3,7 +3,6 @@
 if [ -f /usr/bin/firefox ]; then 
 	echo Packages already installed
 	sleep 2
-	exit 1
 else
 	HOME_PATH='/home/'
 	HOME_PATH+=$USER

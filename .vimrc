@@ -31,6 +31,11 @@ set list
 set splitbelow
 set splitright
 
+" Enable mouse use in all modes
+set mouse=a
+" Set this to the name of your terminal that supports mouse codes.
+set ttymouse=urxvt
+
 set history=999 "keep 999 lines of command line history
 set backspace=indent,eol,start  " more powerful backspacing
 

@@ -44,3 +44,5 @@ if has('gui_running')
   map! <S-Insert> <MiddleMouse>
 endif
 
+set statusline=%f%m%r%=%y\ %{&enc}/%{&fenc}\ %03b(%2Bh)\ C:%3c\ L:%4l/%4L
+

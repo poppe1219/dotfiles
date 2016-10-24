@@ -15,6 +15,11 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set smarttab
+set cursorline "Highlight line with cursor."
+set report=0 "Show all changes."
+set scrolloff=5
+set sidescrolloff=7
+set sidescroll=1
 
 "Centralize backup files, avoids the pesky .swp file in repos."
 set backupdir=~/.vim/backups
@@ -23,6 +28,8 @@ set directory=~/.vim/swaps
 set listchars=space:·,trail:·,precedes:«,extends:»,tab:▸\ ,eol:↲,nbsp:×
 set list
 
+set splitbelow
+set splitright
 
 set history=999 "keep 999 lines of command line history
 set backspace=indent,eol,start  " more powerful backspacing

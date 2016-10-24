@@ -16,7 +16,7 @@ set softtabstop=4
 set expandtab
 set smarttab
 set cursorline "Highlight line with cursor."
-hi CursorLine cterm=NONE ctermbg=darkred ctermfg=white
+hi CursorLine cterm=NONE ctermbg=DarkGrey
 set report=0 "Show all changes."
 set scrolloff=5
 set sidescrolloff=7

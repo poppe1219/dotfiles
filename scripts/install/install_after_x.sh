@@ -8,6 +8,8 @@ else
 	HOME_PATH+=$USER
 	cd $HOME_PATH
 	
+	mkdir -p "$HOME_PATH/.vim/backups"
+	mkdir -p "$HOME_PATH/.vim/swaps"
 	
 	xrandr --output `xrandr --listmonitors | grep "0:" | cut -d " " -f 6` --auto
 	

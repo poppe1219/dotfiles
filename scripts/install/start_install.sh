@@ -49,14 +49,14 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 sudo pacman -Sy --noconfirm yaourt
-sudo pacman -S --noconfirm nitrogen rxvt-unicode xorg-xrdb compton xorg-xinit
+sudo pacman -S --noconfirm nitrogen rxvt-unicode xorg xorg-xrdb compton xorg-xinit
 yaourt -S --noconfirm i3-gaps-git i3status ttf-iosevka zsh
 sudo chsh -s /bin/zsh $USER  # Set default shell to zsh.
 touch "$HOME_PATH/.xinitrc"
 echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 
 SYS_PROD_NAME=`sudo dmidecode -s system-product-name`
-if [ $SYS_PROD_NAME = "VirtualBox" ] ; then
+if [[ "${SYS_PROD_NAME}" -eq "VirtualBox" ]] ; then
     echo "VirtualBox detected, installing guest additions."
     yes | sudo pacman -S virtualbox-guest-modules-arch  # Force yes on all answers.
 fi

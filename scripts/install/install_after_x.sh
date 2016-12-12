@@ -8,6 +8,7 @@ else
 	HOME_PATH+=$USER
 	cd $HOME_PATH
 	
+	setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,se
 	mkdir -p "$HOME_PATH/.vim/backups"
 	mkdir -p "$HOME_PATH/.vim/swaps"
 	

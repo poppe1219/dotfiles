@@ -46,5 +46,5 @@ else
 	yaourt -S --noconfirm zsh-autosuggestions
 	yaourt -S --noconfirm visual-studio-code  # Could this possibly replace eclipse permanently?
 fi
-/usr/bin/zsh
+/usr/bin/zsh # Start a shell, otherwize the terminal is left "empty".
 

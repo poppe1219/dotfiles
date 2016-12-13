@@ -57,8 +57,13 @@ echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
 
 SYS_PROD_NAME=`sudo dmidecode -s system-product-name`
 if [[ "${SYS_PROD_NAME}" -eq "VirtualBox" ]] ; then
-    echo "VirtualBox detected, installing guest additions."
+    echo "VirtualBox guest system install detected, installing guest additions."
     yes | sudo pacman -S virtualbox-guest-modules-arch  # Force yes on all answers.
+else:
+    echo "Installing VirtualBox host system."
+    sudo pacman -S --noconfirm virtualbox-host-modules-arch  # Force yes on all answers.
+    sudo pacman -S --noconfirm virtualbox-guest-is
+    yaourt -S --noconfirm virtualbox-ext-oracle
 fi
 
 sudo chown -R "$USER:users" $HOME_PATH

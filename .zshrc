@@ -89,3 +89,6 @@ export EDITOR=$VISUAL
 DEFAULT_USER="poppe1219"
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,se
+

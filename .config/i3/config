@@ -97,16 +97,16 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+v exec --no-startup-id urxvt -name "floating_urxvt"
 for_window [class="URxvt" instance="floating_urxvt$"] floating toggle
 
-set $workspace1 "1: ?"
-set $workspace2 "2: ?"
-set $workspace3 "3: ?"
-set $workspace4 "4: ?"
-set $workspace5 "5: ?"
-set $workspace6 "6: ?"
-set $workspace7 "7: ?"
-set $workspace8 "8: ?"
-set $workspace9 "9: ?"
-set $workspace10 "10: Music"
+set $workspace1 "1: 1"
+set $workspace2 "2: 2"
+set $workspace3 "3: 3"
+set $workspace4 "4: 4"
+set $workspace5 "5: 5"
+set $workspace6 "6: 6"
+set $workspace7 "7: 7"
+set $workspace8 "8: 8"
+set $workspace9 "9: 9"
+set $workspace10 "10: 10"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1

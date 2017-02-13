@@ -26,7 +26,7 @@ set sidescroll=1
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 
-set listchars=space:·,trail:·,precedes:«,extends:»,tab:▸\ ,eol:↲,nbsp:×
+set listchars=space:·,trail:·,precedes:«,extends:»,tab:>·,eol:¬,nbsp:×
 set list
 
 set splitbelow

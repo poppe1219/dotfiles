@@ -22,6 +22,8 @@ hi NonText ctermfg=DarkBlue
 hi OverLength ctermfg=NONE ctermbg=NONE
 set colorcolumn=80
 hi ColorColumn ctermbg=Black
+hi LineNr cterm=NONE ctermfg=Black ctermbg=NONE
+hi CursorLineNr ctermfg=Gray ctermbg=Black
 set report=0 "Show all changes."
 set scrolloff=5
 set sidescrolloff=7

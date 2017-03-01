@@ -55,6 +55,7 @@ else
 	yaourt -S --noconfirm zsh-autosuggestions
 	yaourt -S --noconfirm visual-studio-code
 	yaourt -S --noconfirm googler
+	yaourt -S --noconfirm svtplay-dl
 fi
 /usr/bin/zsh # Start a shell, otherwize the terminal is left "empty".
 

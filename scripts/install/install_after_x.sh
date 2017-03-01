@@ -39,12 +39,22 @@ else
 	wget https://github.com/zavoloklom/material-design-iconic-font/blob/2.2.0/dist/fonts/Material-Design-Iconic-Font.ttf
 	cd $HOME_PATH
 	
-	sudo pacman -S --noconfirm lxappearance rofi urxvt-perls vim dmidecode htop xorg-xprop tmux tig python-pip
+	sudo pacman -S --noconfirm lxappearance
+	sudo pacman -S --noconfirm rofi
+	sudo pacman -S --noconfirm urxvt-perls
+	sudo pacman -S --noconfirm vim
+	sudo pacman -S --noconfirm dmidecode
+	sudo pacman -S --noconfirm htop
+	sudo pacman -S --noconfirm xorg-xprop
+	sudo pacman -S --noconfirm tmux
+	sudo pacman -S --noconfirm tig
+	sudo pacman -S --noconfirm python-pip
 	ln -s "$HOME_PATH/git/dotfiles/.vimrc" "$HOME_PATH/.vimrc"
 	sudo pacman -S --noconfirm gtk-theme-arc
 	sudo pacman -S --noconfirm firefox
 	yaourt -S --noconfirm zsh-autosuggestions
-	yaourt -S --noconfirm visual-studio-code  # Could this possibly replace eclipse permanently?
+	yaourt -S --noconfirm visual-studio-code
+	yaourt -S --noconfirm googler
 fi
 /usr/bin/zsh # Start a shell, otherwize the terminal is left "empty".
 

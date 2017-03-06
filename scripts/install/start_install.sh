@@ -14,11 +14,12 @@ HOME_PATH='/home/'
 HOME_PATH+=$USER
 cd $HOME_PATH
 
-sudo pacman -Syu --noconfirm
+sudo pacman -Syyu --noconfirm
 
 mkdir -p "$HOME_PATH/.config/i3"
 mkdir -p "$HOME_PATH/.config/gtk-3.0"
 mkdir -p "$HOME_PATH/.config/nitrogen"
+mkdir -p "$HOME_PATH/.config/polybar"
 mkdir -p "$HOME_PATH/Downloads"
 mkdir -p "$HOME_PATH/.fonts"
 mkdir -p "$HOME_PATH/.wallpapers"
@@ -33,6 +34,9 @@ cd "$HOME_PATH/.config/"
 ln -s "$HOME_PATH/git/dotfiles/.config/compton.conf" compton.conf
 cd "$HOME_PATH/.config/i3"
 ln -s "$HOME_PATH/git/dotfiles/.config/i3/config" config
+cd "$HOME_PATH/.config/polybar"
+ln -s "$HOME_PATH/git/dotfiles/.config/polybar/config" config
+ln -s "$HOME_PATH/git/dotfiles/.config/polybar/launch.sh" launch.sh
 cd "$HOME_PATH/.config/gtk-3.0"
 ln -s "$HOME_PATH/git/dotfiles/.config/gtk-3.0/settings.ini" settings.ini
 sudo chown -R "$USER:users" "$HOME_PATH/.config" "$HOME_PATH/.gtkrc-2.0"

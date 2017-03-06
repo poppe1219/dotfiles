@@ -49,6 +49,9 @@ else
 	sudo pacman -S --noconfirm tmux
 	sudo pacman -S --noconfirm tig
 	sudo pacman -S --noconfirm python-pip
+	sudo pacman -S --noconfirm cups
+	sudo pacman -S --noconfirm evince  # Pdf viewer.
+	sudo pacman -S --noconfirm gtk3-print-backends  # So envince can find printers.
 	ln -s "$HOME_PATH/git/dotfiles/.vimrc" "$HOME_PATH/.vimrc"
 	sudo pacman -S --noconfirm gtk-theme-arc
 	sudo pacman -S --noconfirm firefox

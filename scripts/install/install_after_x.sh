@@ -1,8 +1,7 @@
 #!/bin/bash
 
 if [ -f /usr/bin/firefox ]; then 
-	echo Packages already installed
-	sleep 2
+	echo "Initial startup. Installation already completed."
 else
 	HOME_PATH='/home/'
 	HOME_PATH+=$USER
@@ -60,6 +59,9 @@ else
 	yaourt -S --noconfirm googler
 	yaourt -S --noconfirm svtplay-dl
 	yaourt -S --noconfirm youtube-dl
+	yaourt -S --noconfirm mopidy
+	yaourt -S --noconfirm mopidy-spotify
+	yaourt -S --noconfirm ncmpcpp
 fi
 /usr/bin/zsh # Start a shell, otherwize the terminal is left "empty".
 

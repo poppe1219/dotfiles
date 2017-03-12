@@ -51,11 +51,61 @@ set backspace=indent,eol,start  " more powerful backspacing
 " These are files we are not likely to want to edit or read.
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.png,.jpg
 
-if has('gui_running')
-  " Make shift-insert work like in Xterm
-  map <S-Insert> <MiddleMouse>
-  map! <S-Insert> <MiddleMouse>
-endif
 
-set statusline=%f%m%r%=%y\ %{&enc}/%{&fenc}\ %03b(%2Bh)\ C:%3c\ L:%4l/%4L
+"set statusline=%f%m%r%=%y\ %{&enc}/%{&fenc}\ %03b(%2Bh)\ C:%3c\ L:%4l/%4L
 
+
+" Set up the status line
+fun! <SID>SetStatusLine()
+    let l:s1="%-3.3n\\ %f\\ %h%m%r%w"
+    let l:s2="[%{strlen(&filetype)?&filetype:'?'},%{&encoding},%{&fileformat}]"
+    let l:s3="%=\\ 0x%-8B\\ \\ %-14.(%l,%c%V%)\\ %<%P"
+    execute "set statusline=" . l:s1 . l:s2 . l:s3
+endfun
+set laststatus=2
+call <SID>SetStatusLine()
+
+
+" Set up the status line
+function! InsertStatuslineColor(mode)
+  if a:mode == 'i'
+    hi statusline guibg=Cyan ctermfg=6 guifg=Black ctermbg=0
+  elseif a:mode == 'r'
+    hi statusline guibg=Purple ctermfg=5 guifg=Black ctermbg=0
+  else
+    hi statusline guibg=DarkRed ctermfg=1 guifg=Black ctermbg=0
+  endif
+endfunction
+
+au InsertEnter * call InsertStatuslineColor(v:insertmode)
+au InsertLeave * hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
+
+" default the statusline to green when entering Vim
+hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
+
+" Formats the statusline
+set statusline=%f                           " file name
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff}] "file format
+set statusline+=%y      "filetype
+set statusline+=%h      "help file flag
+set statusline+=%m      "modified flag
+set statusline+=%r      "read only flag
+
+"" Puts in the current git status
+"    if count(g:pathogen_disabled, 'Fugitive') < 1   
+"        set statusline+=%{fugitive#statusline()}
+"    endif
+"
+"" Puts in syntastic warnings
+"    if count(g:pathogen_disabled, 'Syntastic') < 1  
+"        set statusline+=%#warningmsg#
+"        set statusline+=%{SyntasticStatuslineFlag()}
+"        set statusline+=%*
+"    endif
+
+set statusline+=\ %=                        " align left
+set statusline+=Line:%l/%L[%p%%]            " line X of Y [percent of file]
+set statusline+=\ Col:%c                    " current column
+set statusline+=\ Buf:%n                    " Buffer number
+set statusline+=\ [%b][0x%B]\               " ASCII and byte code under cursor

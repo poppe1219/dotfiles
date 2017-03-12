@@ -93,3 +93,5 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,se
 
+alias calc='python -ic "from __future__ import division; from math import *; from random import *"'
+

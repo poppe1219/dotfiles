@@ -59,9 +59,10 @@ else
 	yaourt -S --noconfirm googler
 	yaourt -S --noconfirm svtplay-dl
 	yaourt -S --noconfirm youtube-dl
-	yaourt -S --noconfirm mopidy
-	yaourt -S --noconfirm mopidy-spotify
-	yaourt -S --noconfirm ncmpcpp
+	yaourt -S --noconfirm mopidy # Music server.
+	yaourt -S --noconfirm mopidy-spotify # Addon to use Spotify.
+	yaourt -S --noconfirm ncmpcpp # Music client to Mopidy.
+	yaourt -S --noconfirm iftop # Network monitor.
 fi
 /usr/bin/zsh # Start a shell, otherwize the terminal is left "empty".
 

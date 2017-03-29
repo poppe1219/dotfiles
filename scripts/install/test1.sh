@@ -1,32 +1,33 @@
 #!/bin/bash
 
-
-pacman_packages=(
-    # Foo
-    nitrogen
-    compton
-    # Bar
-    xorg-xrdb
-    xorg-init
+packages=(
+    "p:nitrogen:Wallpaper app"
+    "p:compton:Composition manager"
+    "p:xorg-xrdb:xorg database app"
+    "p:xorg-init:xorg initialization"
+    "y:i3status:i3 status bar"
+    "y:ttf-iosevka:Font"
+    "y:zsh:Z shell"
 )
 
-yaourt_packages=(
-    i3status
-    ttf-iosevka
-    zsh
-)
-
-for i in "${pacman_packages[@]}"
+for line in "${packages[@]}"
 do
-    echo "Installing package: $i"
-    urxvt -e sudo pacman -S --noconfirm $i
-    #i3-msg "workspace 2: Terminals; exec sleep 0.3 && urxvt -e sudo pacman -S --noconfirm $i"
-done
+    IFS=':' read -r -a parts <<< "$line"
+    #parts=(${line//:/ })
+    if [ ${parts[0]} = "p" ]; then
+        manager="sudo pacman"
+    else
+        manager="yaourt"
+    fi
+    echo "Installing with $manager: ${parts[1]}, ${parts[2]}"
 
-for i in "${yaourt_packages[@]}"
-do
-    echo "Installing package: $i"
-    urxvt -e yaourt -S --noconfirm $i
-    #i3-msg "workspace 2: Terminals; exec sleep 0.3 && urxvt -e yaourt -S --noconfirm $i"
+    # Check for installed package: pacman -Qe
+    # Split result into name and verison?
+    # or...
+    # just use: sudo pacman -S --needed chromium
+    foo=$(${manager} -S --needed --noconfirm ${parts[1]})
+    exit_code=$?
+    echo "BAR $exit_code BAR"
+    echo "FOO $foo FOO"
 done
 

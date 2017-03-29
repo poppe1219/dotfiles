@@ -97,6 +97,8 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+v exec --no-startup-id urxvt -name "floating_urxvt"
 for_window [class="URxvt" instance="floating_urxvt$"] floating toggle
 
+bindsym $mod+p exec /home/poppe1219/git/i3lock-fancy-multimonitor/lock
+
 set $workspace1 "1: 1"
 set $workspace2 "2: 2"
 set $workspace3 "3: 3"

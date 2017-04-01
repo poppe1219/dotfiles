@@ -19,7 +19,7 @@ set $base0E #c0b7f9
 set $base0F #fcc09e
 
 # Font for window titles.
-font pango:Iosevka 11
+font pango:Roboto 11
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

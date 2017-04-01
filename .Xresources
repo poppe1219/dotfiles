@@ -49,11 +49,11 @@
 
 Xft.dpi:                        109
 URxvt*termName:                 rxvt-256color
-!URxvt*font:                     xft:Iosevka:style=Regular:pixelsize=13
-URxvt*font:                     xft:Monospace:style=Regular:pixelsize=14
+URxvt*font:                     xft:Inconsolata:style=Regular:pixelsize=14
+!URxvt*font:                     xft:Monospace:style=Regular:pixelsize=14
 URxvt.depth:                    32
 URxvt*lineSpace:                0
-URxvt.letterSpace:              -1
+URxvt.letterSpace:              -1.5
 URxvt.iso14755:                 false
 URxvt.iso14755_52:              false
 URxvt.scrollBar:                false
@@ -75,7 +75,7 @@ rofi.padding: 300
 rofi.opacity: 80
 rofi.lines: 5
 rofi.eh: 1.5
-rofi.font: Iovsenka Bold 14
+rofi.font: Roboto Bold 14
 rofi.color-window: #393939, #393939, #268bd2
 rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
 rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171

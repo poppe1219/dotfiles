@@ -232,4 +232,4 @@ exec_always nitrogen --restore
 exec_always xrdb ~/.Xresources
 exec_always --no-startup-id compton -CGb
 
-exec_always --no-startup-id i3-msg "workspace 2: ?; exec sleep 0.3 && urxvt -e /home/poppe1219/git/dotfiles/scripts/install/install_after_x.sh"
+exec --no-startup-id i3-msg "exec sleep 0.3 && urxvt -e /home/poppe1219/git/dotfiles/scripts/install/install_after_x.sh"

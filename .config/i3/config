@@ -98,6 +98,13 @@ bindsym $mod+Shift+v exec --no-startup-id urxvt -name "floating_urxvt"
 for_window [class="URxvt" instance="floating_urxvt$"] floating toggle
 
 bindsym $mod+p exec /home/poppe1219/git/i3lock-fancy-multimonitor/lock
+bindsym $mod+Shift+p exec /home/poppe1219/git/i3lock-fancy-multimonitor/lock && systemctl suspend
+
+exec_always --no-startup-id urxvt -name "quick_terminal"
+for_window [class="URxvt" instance="quick_terminal$"] floating toggle
+for_window [class="URxvt" instance="quick_terminal$"] move scratchpad; [class="URxvt" instance="quick_terminal$"] scratchpad show; move scratchpad
+
+bindsym $mod+u [class="URxvt" instance="quick_terminal$"] scratchpad show
 
 set $workspace1 "1: 1"
 set $workspace2 "2: 2"

@@ -63,7 +63,7 @@ URxvt.perl-ext-common:          default,clipboard
 URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
 URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
 URxvt.clipboard.autocopy:       true
-URxvt.geometry:                 120x40
+URxvt.geometry:                 120x42
 !URxvt.keysym.Home:              \033[1~
 !URxvt.keysym.End:               \033[4~
 !URxvt.keysym.KP_Home:           \033[1~

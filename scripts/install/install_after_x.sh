@@ -45,6 +45,7 @@ else
 	sudo pacman -S --noconfirm dmidecode
 	sudo pacman -S --noconfirm htop
 	sudo pacman -S --noconfirm xorg-xprop
+	sudo pacman -S --noconfirm xorg-xfd
 	sudo pacman -S --noconfirm tmux
 	sudo pacman -S --noconfirm tig
 	sudo pacman -S --noconfirm python-pip

@@ -60,7 +60,9 @@ sudo pacman -S --noconfirm nitrogen rxvt-unicode xorg xorg-xrdb compton xorg-xin
 yaourt -S --noconfirm i3-gaps-git i3status ttf-iosevka zsh polybar
 sudo chsh -s /bin/zsh $USER  # Set default shell to zsh.
 touch "$HOME_PATH/.xinitrc"
-echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
+if ! grep "exec i3 "$HOME_PATH/.xinitrc" ; then
+    echo "exec i3 > ~/.i3.log 2>&1" >> "$HOME_PATH/.xinitrc"
+fi
 
 SYS_PROD_NAME=`sudo dmidecode -s system-product-name`
 if [[ "${SYS_PROD_NAME}" -eq "VirtualBox" ]] ; then

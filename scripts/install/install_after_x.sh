@@ -41,7 +41,7 @@ else
 	sudo pacman -S --noconfirm lxappearance
 	sudo pacman -S --noconfirm rofi
 	sudo pacman -S --noconfirm urxvt-perls
-	sudo pacman -S --noconfirm vim
+	sudo pacman -S --noconfirm gvim
 	sudo pacman -S --noconfirm dmidecode
 	sudo pacman -S --noconfirm htop
 	sudo pacman -S --noconfirm xorg-xprop

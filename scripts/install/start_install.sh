@@ -31,6 +31,7 @@ sudo chmod +x "$HOME_PATH/git/dotfiles/install_after_x.sh"
 cd "$HOME_PATH"
 ln -s "$HOME_PATH/git/dotfiles/.gtkrc-2.0" .gtkrc-2.0
 ln -s "$HOME_PATH/git/dotfiles/.Xresources" .Xresources
+ln -s "$HOME_PATH/git/dotfiles/.tmux.conf" .tmux.conf
 cd "$HOME_PATH/.config/"
 ln -s "$HOME_PATH/git/dotfiles/.config/compton.conf" compton.conf
 cd "$HOME_PATH/.config/i3"

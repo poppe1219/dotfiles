@@ -105,7 +105,7 @@ for_window [class="URxvt" instance="popup_terminal$"] floating toggle
 for_window [class="URxvt" instance="popup_terminal$"] move scratchpad; [class="URxvt" instance="popup_terminal$"] scratchpad show; move scratchpad
 bindsym $mod+t [class="URxvt" instance="popup_terminal$"] scratchpad show
 
-exec --no-startup-id urxvt -name "music_terminal" -e ~/git/dotfiles/scripts/tmux-music-launch.sh
+exec --no-startup-id urxvt -name "music_terminal" -e ~/git/dotfiles/scripts/bash/tmux-music-launch.sh
 for_window [class="URxvt" instance="music_terminal$"] floating toggle
 for_window [class="URxvt" instance="music_terminal$"] move scratchpad; [class="URxvt" instance="music_terminal$"] scratchpad show; move scratchpad
 bindsym $mod+m [class="URxvt" instance="music_terminal$"] scratchpad show

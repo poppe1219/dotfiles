@@ -3,7 +3,7 @@
 tmux new -d -s music
 
 tmux rename-window mopidy
-tmux send-keys "~/git/dotfiles/scripts/start_mopidy.sh" C-m
+tmux send-keys "~/git/dotfiles/scripts/bash/start_mopidy.sh" C-m
 tmux new-window -n ncmpcpp
 tmux send-keys "ncmpcpp"
 

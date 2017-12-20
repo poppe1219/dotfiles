@@ -78,6 +78,8 @@ else:
     sudo usermod -aG vboxusers $USER
 fi
 
+# Todo: Install docker, join docker user group.
+
 sudo chown -R "$USER:users" $HOME_PATH
 
 startx

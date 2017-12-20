@@ -72,7 +72,7 @@ if [[ "${SYS_PROD_NAME}" -eq "VirtualBox" ]] ; then
 else:
     echo "Installing VirtualBox host system."
     sudo pacman -S --noconfirm virtualbox-host-modules-arch
-    sudo pacman -S --noconfirm virtualbox-guest-is
+    sudo pacman -S --noconfirm virtualbox-guest-iso
     yaourt -S --noconfirm virtualbox-ext-oracle
     # Join the vboxusers group. Needed for USB access, etc.
     sudo usermod -aG vboxusers $USER

@@ -68,10 +68,10 @@ fi
 SYS_PROD_NAME=`sudo dmidecode -s system-product-name`
 if [[ "${SYS_PROD_NAME}" -eq "VirtualBox" ]] ; then
     echo "VirtualBox guest system install detected, installing guest additions."
-    yes | sudo pacman -S virtualbox-guest-modules-arch  # Force yes on all answers.
+    yes | sudo pacman -S virtualbox-guest-modules-arch
 else:
     echo "Installing VirtualBox host system."
-    sudo pacman -S --noconfirm virtualbox-host-modules-arch  # Force yes on all answers.
+    sudo pacman -S --noconfirm virtualbox-host-modules-arch
     sudo pacman -S --noconfirm virtualbox-guest-is
     yaourt -S --noconfirm virtualbox-ext-oracle
     # Join the vboxusers group. Needed for USB access, etc.

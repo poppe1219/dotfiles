@@ -74,6 +74,8 @@ else:
     sudo pacman -S --noconfirm virtualbox-host-modules-arch  # Force yes on all answers.
     sudo pacman -S --noconfirm virtualbox-guest-is
     yaourt -S --noconfirm virtualbox-ext-oracle
+    # Join the vboxusers group. Needed for USB access, etc.
+    sudo usermod -aG vboxusers $USER
 fi
 
 sudo chown -R "$USER:users" $HOME_PATH

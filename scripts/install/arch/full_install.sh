@@ -1,15 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env python3
 
-# Internet connectivity is assumed.
 
-sudo echo "Starting..."
+def run_stuff():
+    print("Done.")
 
-TARGET_DISK=${1}
-if [ -z "${TARGET_DISK}" ]; then
-    echo
-    echo "Target disk for installation. Typically 'sda'."
-    read -p "TARGET_DISK: " TARGET_DISK
-fi
 
-lsblk /dev/$TARGET_DISK
+if __name__ == "__main__":
+    #var1 = run_script_1()
+    #var2 = run_script_2(var1)
+    #var3 = run_script_3(var2)
+    run_stuff()
+
 

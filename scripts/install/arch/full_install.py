@@ -5,13 +5,23 @@ import subprocess
 
 def run_stuff():
     disk = input('Disk name, typically "sda"? ')
-    output = subprocess.check_output(['sudo', 'fdisk', '-l', '/dev/{}'.format(disk)])
-    print(output.decode())
-    output = subprocess.check_output(['sudo', 'ls', '-la'])
-    print(output.decode())
-    #with open('command.log', 'a') as log_file: 
-    #    log_file.write(output.decode())
-    #    log_file.close()
+    # Lets try the new Python3 approach, run().
+    completed = subprocess.run(
+        ['sudo', 'fdisk', '-l', '/dev/{}'.format(disk)],
+        encoding="utf-8",
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE
+    )
+    if completed.returncode == 0:
+        print('Success!')
+        output = completed.stdout
+        print("Len of output: {}".format(len(output)))
+        print('STDOUT: {}'.format(output))
+    else:
+        print('Fail!')
+        print('Returncode: {}'.format(completed.returncode))
+        output2 = completed.stderr
+        print('STDERR: {}'.format(output2))
     print("Done.")
 
 

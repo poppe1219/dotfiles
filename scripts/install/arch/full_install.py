@@ -4,11 +4,12 @@ import subprocess
 
 
 def run_stuff():
-    output = subprocess.check_output(['lsblk'])
-    #command_output = command_process.communicate()[0]
-    with open('command.log', 'a') as log_file: 
-        log_file.write(output.decode())
-        log_file.close()
+    disk = input('Disk name, typically "sda"? ')
+    output = subprocess.check_output(['sudo', 'fdisk', '-l', '/dev/{}'.format(disk)])
+    print(output.decode())
+    #with open('command.log', 'a') as log_file: 
+    #    log_file.write(output.decode())
+    #    log_file.close()
     print("Done.")
 
 

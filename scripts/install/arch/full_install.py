@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 import subprocess
 
 
@@ -26,14 +27,21 @@ def bash_run(args):
     return result 
 
 
+def abort_script(message, exit_status=1):
+    print(message)
+    print('Aborting...')
+    print()
+    sys.exit(1)
+
+
 def run_stuff():
     # ['sudo', 'fdisk', '-l', '/dev/{}'.format(disk)],
     disk = input('Disk name, typically "sda"? ')
     args = ['grep', '/dev/{}'.format(disk), '/proc/mounts']
     if bash_success(args) is True:
-        print('Success!')
-    else:
-        print('Fail!')
+        msg = '...disk "{}" is mounted! \nIs that the right disk?'.format(disk)
+        abort_script(msg)
+    print('Continuing...')
     print('Done.')
 
 

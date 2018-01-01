@@ -7,6 +7,8 @@ def run_stuff():
     disk = input('Disk name, typically "sda"? ')
     output = subprocess.check_output(['sudo', 'fdisk', '-l', '/dev/{}'.format(disk)])
     print(output.decode())
+    output = subprocess.check_output(['sudo', 'ls', '-la'])
+    print(output.decode())
     #with open('command.log', 'a') as log_file: 
     #    log_file.write(output.decode())
     #    log_file.close()

@@ -35,11 +35,14 @@ def abort_script(message, exit_status=1):
 
 
 def run_stuff():
-    # ['sudo', 'fdisk', '-l', '/dev/{}'.format(disk)],
-    disk = input('Disk name, typically "sda"? ')
+    disk = input('Disk name, typically \'sda\'? ')
+    args = ['sudo', 'fdisk', '-l', '/dev/{}'.format(disk)]
+    if bash_success(args) is False:
+        msg = '...disk \'{}\' not found.'.format(disk)
+        abort_script(msg)
     args = ['grep', '/dev/{}'.format(disk), '/proc/mounts']
     if bash_success(args) is True:
-        msg = '...disk "{}" is mounted! \nIs that the right disk?'.format(disk)
+        msg = '...disk \'{}\' is mounted! \nIs that the right disk?'.format(disk)
         abort_script(msg)
     print('Continuing...')
     print('Done.')

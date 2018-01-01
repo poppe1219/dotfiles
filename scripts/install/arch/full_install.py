@@ -3,25 +3,27 @@
 import subprocess
 
 
-def run_stuff():
-    disk = input('Disk name, typically "sda"? ')
-    # Lets try the new Python3 approach, run().
+def bash_success(args):
     completed = subprocess.run(
-        ['sudo', 'fdisk', '-l', '/dev/{}'.format(disk)],
+        args,
         encoding="utf-8",
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE
     )
     if completed.returncode == 0:
+        return True
+    else:
+        return False
+
+
+def run_stuff():
+    # ['sudo', 'fdisk', '-l', '/dev/{}'.format(disk)],
+    disk = input('Disk name, typically "sda"? ')
+    args = ['grep', '/dev/{}'.format(disk), '/proc/mounts']
+    if bash_success(args) is True:
         print('Success!')
-        output = completed.stdout
-        print("Len of output: {}".format(len(output)))
-        print('STDOUT: {}'.format(output))
     else:
         print('Fail!')
-        print('Returncode: {}'.format(completed.returncode))
-        output2 = completed.stderr
-        print('STDERR: {}'.format(output2))
     print("Done.")
 
 

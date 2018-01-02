@@ -4,6 +4,40 @@ import sys
 import subprocess
 
 
+"""
+Swap partition size:
+If ram is less than 1GB:
+    swap = ram * 2
+else:
+    min sqrt(ram)
+    max ram x 2
+
+
+Partitioning example of 10GB
+sda1, 8MB, BIOS Boot
+sda2, 500M, Linux filesystem.
+sda3, 3G, Linux filesystem.
+sda4, 6.5, Linux filesystem.
+sync
+
+Format:
+mkfs.ext4 /dev/sda2
+mkfs.ext4 /dev/sda3
+mkfs.ext4 /dev/sda4
+
+Mount:
+mount /dev/sda3 /mnt
+mkdir /mnt/boot /mnt/home
+mount /dev/sda2 /mnt/boot
+mount /dev/sda4 /mnt/home
+
+mkswap /dev/sdax
+
+pacstrap -i /mnt/ base base-devel
+
+"""
+
+
 def bash_success(args):
     completed = subprocess.run(
         args,

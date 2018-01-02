@@ -61,6 +61,17 @@ def bash_run(args):
     return result 
 
 
+def input_d(prompt, default=None):
+    if default is not None:
+        text = '{} (default {}): '.format(prompt, default)
+    else:
+        text = '{}: '.format(prompt)
+    result = input(text)
+    if default is not None and len(result) == 0:
+        result = default
+    return result
+
+
 def abort_script(message, exit_status=1):
     print(message)
     print('Aborting...')
@@ -69,7 +80,7 @@ def abort_script(message, exit_status=1):
 
 
 def run_stuff():
-    disk = input('Disk name, typically \'sda\'? ')
+    disk = input_d('Disk name', 'sda')
     args = ['sudo', 'fdisk', '-l', '/dev/{}'.format(disk)]
     if bash_success(args) is False:
         msg = '...disk \'{}\' not found.'.format(disk)

@@ -79,7 +79,7 @@ def abort_script(message, exit_status=1):
     sys.exit(1)
 
 
-def run_stuff():
+def install_step_1():
     disk = input_d('Disk name', 'sda')
     args = ['sudo', 'fdisk', '-l', '/dev/{}'.format(disk)]
     if bash_success(args) is False:
@@ -90,11 +90,12 @@ def run_stuff():
         msg = '...disk \'{}\' is mounted! \nIs that the right disk?'.format(disk)
         abort_script(msg)
     print('Continuing...')
+
+
+def start_install():
+    install_step_1()
     print('Done.')
 
 
 if __name__ == '__main__':
-    #var1 = run_script_1()
-    #var2 = run_script_2(var1)
-    #var3 = run_script_3(var2)
-    run_stuff()
+    start_install()

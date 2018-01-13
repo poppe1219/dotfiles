@@ -208,6 +208,7 @@ for_window [class="com-wolfram-jlink-Reader"] floating enable
 for_window [class="Gifview"] floating enable
 for_window [class="Lxappearence"] floating enable
 for_window [title="^My project"] floating enable # Defold build window.
+for_window [class="Pavucontrol"] floating enable
 
 ## Start i3bar to display a workspace bar.
 #bar {

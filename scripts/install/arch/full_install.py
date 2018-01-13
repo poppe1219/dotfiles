@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import sys
 import subprocess
 
@@ -38,26 +39,37 @@ pacstrap -i /mnt/ base base-devel
 """
 
 
-def bash_success(args):
-    completed = subprocess.run(
-        args,
-        encoding='utf-8',
+def bash_success(command):
+    result = subprocess.run(
+        command,
+        env=os.environ.copy(),
         stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE
+        stderr=subprocess.PIPE,
+        encoding='utf-8',
+        shell=True
     )
-    if completed.returncode == 0:
+    if result.returncode == 0:
         return True
     else:
         return False
 
 
-def bash_run(args):
+def bash_run(command):
     result = subprocess.run(
-        args,
-        encoding='utf-8',
+        command,
+        env=os.environ.copy(),
         stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE
+        stderr=subprocess.PIPE,
+        encoding='utf-8',
+        shell=True
     )
+    #result = subprocess.run(
+    #    args,
+    #    encoding='utf-8',
+    #    stdout=subprocess.PIPE,
+    #    stderr=subprocess.PIPE,
+    #    shell=True
+    #)
     return result 
 
 
@@ -79,16 +91,52 @@ def abort_script(message, exit_status=1):
     sys.exit(1)
 
 
+def get_mem_size_kb():
+    result = bash_run('grep MemTotal: /proc/meminfo')
+    mem_line = result.stdout
+    if len(mem_line) > 0:
+        # Ex: "MemTotal:       132039544 kB"
+        mem_size = mem_line.replace('MemTotal:', '').replace('kB', '').strip()
+    else:
+        mem_size = -1
+    return int(mem_size)
+
+
+def get_user():
+    result = bash_run('echo $USER')
+    return result.stdout
+
+
+def get_disk_size(disk_name):
+    command = 'sudo blockdev --getsize64 /dev/{}'.format(disk_name)
+    print('COMMAND:', command)
+    result = bash_run(command)
+    value = result.stdout
+    print('SIZE: {}'.format(value))
+    if value == '':
+        value = '0'
+    return int(value)
+
+
 def install_step_1():
-    disk = input_d('Disk name', 'sda')
-    args = ['sudo', 'fdisk', '-l', '/dev/{}'.format(disk)]
-    if bash_success(args) is False:
-        msg = '...disk \'{}\' not found.'.format(disk)
+    user = get_user()
+    print('USER: {}'.format(user))
+    mem = get_mem_size_kb()
+    print('Avaliable memory: {0:.1f}'.format(mem/1000000))
+    disk_name = input_d('Disk name', 'sda')
+    command = 'sudo fdisk -l /dev/{}'.format(disk_name)
+    if bash_success(command) is False:
+        msg = '...disk \'{}\' not found.'.format(disk_name)
         abort_script(msg)
-    args = ['grep', '/dev/{}'.format(disk), '/proc/mounts']
-    if bash_success(args) is True:
-        msg = '...disk \'{}\' is mounted! \nIs that the right disk?'.format(disk)
+    command = 'grep /dev/{} /proc/mounts'.format(disk_name)
+    if bash_success(command) is True:
+        msg = '...disk \'{}\' is mounted! \nIs that the right disk?'.format(
+            disk_name
+        )
         abort_script(msg)
+    disk_size = get_disk_size(disk_name)
+    print('Disk size: {0:.1f}'.format(disk_size/1024/1000000))
+    swap_size = input_d('Swap partition size', '1GB')
     print('Continuing...')
 
 

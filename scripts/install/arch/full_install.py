@@ -109,7 +109,6 @@ def get_user():
 
 def get_disk_size(disk_name):
     command = 'sudo blockdev --getsize64 /dev/{}'.format(disk_name)
-    print('COMMAND:', command)
     result = bash_run(command)
     value = result.stdout
     print('SIZE: {}'.format(value))
@@ -119,7 +118,7 @@ def get_disk_size(disk_name):
 
 
 def install_step_1():
-    user = get_user()
+    user = get_user().strip()
     print('USER: {}'.format(user))
     mem = get_mem_size_kb()
     print('Avaliable memory: {0:.1f}'.format(mem/1000000))

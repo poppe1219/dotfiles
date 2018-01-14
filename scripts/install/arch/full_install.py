@@ -63,13 +63,6 @@ def bash_run(command):
         encoding='utf-8',
         shell=True
     )
-    #result = subprocess.run(
-    #    args,
-    #    encoding='utf-8',
-    #    stdout=subprocess.PIPE,
-    #    stderr=subprocess.PIPE,
-    #    shell=True
-    #)
     return result 
 
 
@@ -95,7 +88,7 @@ def get_mem_size_kb():
     result = bash_run('grep MemTotal: /proc/meminfo')
     mem_line = result.stdout
     if len(mem_line) > 0:
-        # Ex: "MemTotal:       132039544 kB"
+        # Ex line: "MemTotal:       132039544 kB"
         mem_size = mem_line.replace('MemTotal:', '').replace('kB', '').strip()
     else:
         mem_size = -1

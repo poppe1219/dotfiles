@@ -180,10 +180,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-gaps inner 15
-gaps outer 10
+gaps inner 10
+gaps outer 5
 
-set $bordersize 4
+set $bordersize 3
 set $gray1 #252525
 set $gray2 #4c9882
 

@@ -64,6 +64,25 @@ else
 	yaourt -S --noconfirm mopidy-spotify # Addon to use Spotify.
 	yaourt -S --noconfirm ncmpcpp # Music client to Mopidy.
 	yaourt -S --noconfirm iftop # Network monitor.
+
+
+	# Todo
+	# ====
+
+	# Add ssh server capability
+	# -------------------------
+	# sudo pacman -S --noconfirm openssh # If needed.
+	# systemctl enable sshd.socket
+	# systemctl enable sshd.service
+
+	# Link specific configs per hostname
+	# ----------------------------------
+	# Get hostname, contat into config filename.
+	# Ex, link from 
+	# ~/.config/polybar/config
+	# To the correct config in the repo:
+	# ~/git/dotfiles/.config/polybar/work_desktop1_config
+
 fi
 /usr/bin/zsh # Start a shell, otherwize the terminal is left "empty".
 

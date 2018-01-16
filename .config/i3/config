@@ -205,7 +205,6 @@ for_window [window_role="Preferences"] floating enable
 for_window [class="com-wolfram-jlink-Reader"] floating enable
 for_window [class="Gifview"] floating enable
 for_window [class="Lxappearence"] floating enable
-for_window [title="^My project"] floating enable # Defold build window.
 for_window [class="Pavucontrol"] floating enable
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

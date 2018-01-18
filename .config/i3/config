@@ -161,13 +161,14 @@ bindsym $mod+r mode "resize"
 
 gaps inner 10
 gaps outer 5
-set $mode_gaps Toggle gaps: (1 Off (2 Narrow (3 Medium (4 Wide
+set $mode_gaps Toggle gaps: (1 Off (2 Narrow (3 Medium (4 Wide (5 Wat?
 bindsym $mod+Shift+g mode "$mode_gaps"
 mode "$mode_gaps" {
     bindsym 1 mode "default", gaps inner all set 0, gaps outer all set 0
     bindsym 2 mode "default", gaps inner all set 10, gaps outer all set 5
     bindsym 3 mode "default", gaps inner all set 20, gaps outer all set 10
     bindsym 4 mode "default", gaps inner all set 40, gaps outer all set 20
+    bindsym 5 mode "default", gaps inner all set 100, gaps outer all set 80
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }

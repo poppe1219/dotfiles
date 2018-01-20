@@ -24,6 +24,9 @@ font pango:Roboto 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+ # Set Numlock to on at login time
+ exec --no-startup-id numlockx on
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 

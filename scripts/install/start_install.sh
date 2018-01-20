@@ -58,6 +58,7 @@ fi
 
 sudo pacman -Sy --noconfirm yaourt
 sudo pacman -S --noconfirm nitrogen rxvt-unicode xorg xorg-xrdb compton xorg-xinit
+sudo pacman -S --noconfirm numlockx
 yaourt -S --noconfirm i3-gaps-git i3status ttf-iosevka zsh polybar
 sudo chsh -s /bin/zsh $USER  # Set default shell to zsh.
 touch "$HOME_PATH/.xinitrc"

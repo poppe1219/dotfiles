@@ -46,6 +46,9 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% #i
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
+# Screenshot
+bindsym Print exec scrot ~/Downloads/screenshots/%Y-%m-%d%H:%M:%S.png
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down

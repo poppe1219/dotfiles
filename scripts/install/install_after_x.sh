@@ -64,6 +64,7 @@ else
 	yaourt -S --noconfirm mopidy-spotify # Addon to use Spotify.
 	yaourt -S --noconfirm ncmpcpp # Music client to Mopidy.
 	yaourt -S --noconfirm iftop # Network monitor.
+	yaourt -S --noconfirm urxvt-resize-font-git
 
 
 	# Todo

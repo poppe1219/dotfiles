@@ -30,7 +30,6 @@
 Xft.dpi:                        109
 URxvt*termName:                 rxvt-256color
 URxvt*font:                     xft:Inconsolata:style=Regular:pixelsize=14
-!URxvt*font:                     xft:Monospace:style=Regular:pixelsize=14
 URxvt.depth:                    32
 URxvt*lineSpace:                0
 URxvt.letterSpace:              -1.5
@@ -38,15 +37,20 @@ URxvt.iso14755:                 false
 URxvt.iso14755_52:              false
 URxvt.scrollBar:                false
 URxvt*loginShell:               true
-URxvt.internalBorder:           15
-!URxvt.perl-ext-common:          default,clipboard
+URxvt.internalBorder:           10
 URxvt.perl-ext-common:          default,matcher,url-select,keyboard-select,resize-font
+!! url-select
+URxvt.keysym.M-u:               perl:url-select:select_next
 URxvt.url-select.launcher:      /usr/bin/xdg-open
 URxvt.url-select.underline:     true
-URxvt.keysym.M-u:               perl:url-select:select_next:
+!! keyboard-select
 URxvt.keysym.M-Escape:          perl:keyboard-select:activate
+!! resize-font
 URxvt.resize-font.smaller:      C-j
 URxvt.resize-font.bigger:       C-k
+!! matcher, click on urls.
+URxvt.url-launcher:             /usr/bin/xdg-open
+URxvt.matcher.button:           1
 !URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
 !URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
 !URxvt.clipboard.autocopy:       true

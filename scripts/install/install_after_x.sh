@@ -84,15 +84,14 @@ do
     fi
     package=${parts[1]}
     #extra=${parts[2]}
+    echo "Checking for package ${package}.";
     if [ -z "$(yaourt -Q ${package})" ] ; then
         echo "Installing with $manager: ${parts[1]}"
         foo=$(${manager} -S --noconfirm --needed ${parts[1]})
         exit_code=$?
         echo "BAR $exit_code BAR"
         echo "FOO $foo FOO"
-    else
-        echo "${package} IS installed";
-    fi;
+    fi
 
     ## Run extra command.
     #if [ "${parts[2]}" != "" ]; then

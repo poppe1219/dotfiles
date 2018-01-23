@@ -1,10 +1,11 @@
 #!/bin/bash
 
-if [ -f /usr/bin/firefox ]; then 
-	echo "Initial startup. Installation already completed."
-else
-	HOME_PATH='/home/'
-	HOME_PATH+=$USER
+HOME_PATH='/home/'
+HOME_PATH+=$USER
+VIMRC_PATH="$HOME_PATH/.vimrc"
+
+if [ ! -f $VIMRC_PATH ]; then 
+	
 	cd $HOME_PATH
 	
 	setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,se
@@ -37,53 +38,89 @@ else
 	cd "$HOME_PATH/.fonts"
 	wget https://github.com/zavoloklom/material-design-iconic-font/blob/2.2.0/dist/fonts/Material-Design-Iconic-Font.ttf
 	cd $HOME_PATH
-	
-	sudo pacman -S --noconfirm lxappearance
-	sudo pacman -S --noconfirm rofi
-	sudo pacman -S --noconfirm urxvt-perls
-	sudo pacman -S --noconfirm gvim
-	sudo pacman -S --noconfirm dmidecode
-	sudo pacman -S --noconfirm htop
-	sudo pacman -S --noconfirm xorg-xprop
-	sudo pacman -S --noconfirm xorg-xfd
-	sudo pacman -S --noconfirm tmux
-	sudo pacman -S --noconfirm tig
-	sudo pacman -S --noconfirm python-pip
-	sudo pacman -S --noconfirm cups
-	sudo pacman -S --noconfirm evince  # Pdf viewer.
-	sudo pacman -S --noconfirm gtk3-print-backends  # So envince can find printers.
-	ln -s "$HOME_PATH/git/dotfiles/.vimrc" "$HOME_PATH/.vimrc"
-	sudo pacman -S --noconfirm gtk-theme-arc
-	sudo pacman -S --noconfirm firefox
-	yaourt -S --noconfirm zsh-autosuggestions
-	yaourt -S --noconfirm visual-studio-code
-	yaourt -S --noconfirm googler
-	yaourt -S --noconfirm svtplay-dl
-	yaourt -S --noconfirm youtube-dl
-	yaourt -S --noconfirm mopidy # Music server.
-	yaourt -S --noconfirm mopidy-spotify # Addon to use Spotify.
-	yaourt -S --noconfirm ncmpcpp # Music client to Mopidy.
-	yaourt -S --noconfirm iftop # Network monitor.
-	yaourt -S --noconfirm urxvt-resize-font-git
+    ln -s "$HOME_PATH/git/dotfiles/.vimrc" "$VIMRC_PATH"
 
-
-	# Todo
-	# ====
-
-	# Add ssh server capability
-	# -------------------------
-	# sudo pacman -S --noconfirm openssh # If needed.
-	# systemctl enable sshd.socket
-	# systemctl enable sshd.service
-
-	# Link specific configs per hostname
-	# ----------------------------------
-	# Get hostname, contat into config filename.
-	# Ex, link from 
-	# ~/.config/polybar/config
-	# To the correct config in the repo:
-	# ~/git/dotfiles/.config/polybar/work_desktop1_config
-
+else
+    yaourt -Syy
 fi
+
+packages=(
+    "pacman:lxappearance:"
+    "pacman:rofi:"
+    "pacman:urxvt-perls:"
+    "pacman:gvim:"
+    "pacman:neovim:"
+    "pacman:dmidecode:"
+    "pacman:htop:"
+    "pacman:xorg-xprop:"
+    "pacman:xorg-xfd:"
+    "pacman:tmux:"
+    "pacman:tig:"
+    "pacman:python-pip:"
+    "pacman:cups:"
+    "pacman:evince:# Pdf viewer."
+    "pacman:firefox:"
+    "pacman:openssh:"
+    "yaourt:gtk3-print-backends-nocolord:# So envince can find printers."
+    "yaourt:zsh-autosuggestions:"
+    "yaourt:visual-studio-code:"
+    "yaourt:googler:"
+    "yaourt:svtplay-dl:"
+    "yaourt:youtube-dl:"
+    "yaourt:mopidy:# Music server."
+    "yaourt:mopidy-spotify:# Addon to use Spotify."
+    "yaourt:ncmpcpp:# Music client to Mopidy."
+    "yaourt:iftop:# Network monitor."
+    "yaourt:urxvt-resize-font-git:"
+)
+
+for line in "${packages[@]}"
+do
+    IFS=':' read -r -a parts <<< "$line"
+    if [ ${parts[0]} = "pacman" ]; then
+        manager="sudo pacman"
+    elif [ ${parts[0]} = "yaourt" ]; then
+        manager="yaourt"
+    fi
+    package=${parts[1]}
+    #extra=${parts[2]}
+    if [ -z "$(yaourt -Q ${package})" ] ; then
+        echo "Installing with $manager: ${parts[1]}"
+        foo=$(${manager} -S --noconfirm --needed ${parts[1]})
+        exit_code=$?
+        echo "BAR $exit_code BAR"
+        echo "FOO $foo FOO"
+    else
+        echo "${package} IS installed";
+    fi;
+
+    ## Run extra command.
+    #if [ "${parts[2]}" != "" ]; then
+    #    echo "Running extra command: ${parts[2]}"
+    #    ${parts[2]}
+    #fi
+done
+
+sudo systemctl enable sshd.socket
+sudo systemctl enable sshd.service
+
+echo ""
+echo "Dotfiles Todo"
+echo "============="
+echo ""
+echo "Testing add ssh server capability"
+echo "---------------------------------"
+echo "systemctl enable sshd.socket"
+echo "systemctl enable sshd.service"
+echo ""
+echo "Link specific configs per hostname"
+echo "----------------------------------"
+echo "Get hostname, contat into config filename."
+echo "Ex, link from "
+echo "~/.config/polybar/config"
+echo "To the correct config in the repo:"
+echo "~/git/dotfiles/.config/polybar/work_desktop1_config"
+echo ""
+
 /usr/bin/zsh # Start a shell, otherwize the terminal is left "empty".
 

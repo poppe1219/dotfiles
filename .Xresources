@@ -46,8 +46,13 @@ URxvt.url-select.underline:     true
 !! keyboard-select
 URxvt.keysym.M-Escape:          perl:keyboard-select:activate
 !! resize-font
-URxvt.resize-font.smaller:      C-j
-URxvt.resize-font.bigger:       C-k
+!URxvt.resize-font.smaller:      C-j
+!URxvt.resize-font.bigger:       C-k
+! Defaults:
+!URxvt.keysym.C-minus:           resize-font:smaller
+!URxvt.keysym.C-plus:            resize-font:bigger
+!URxvt.keysym.C-equal:           resize-font:reset
+!URxvt.keysym.C-question:        resize-font:show
 !! matcher, click on urls.
 URxvt.url-launcher:             /usr/bin/xdg-open
 URxvt.matcher.button:           1

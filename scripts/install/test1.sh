@@ -1,33 +1,51 @@
 #!/bin/bash
 
+
+HOME_PATH='/home/'
+HOME_PATH+=$USER
+VIMRC_PATH="$HOME_PATH/.vimrc"
+
+if [ ! -f $VIMRC_PATH ]; then 
+    echo "Foo"
+else
+    echo "Bar"
+fi
+
 packages=(
-    "p:nitrogen:Wallpaper app"
-    "p:compton:Composition manager"
-    "p:xorg-xrdb:xorg database app"
-    "p:xorg-init:xorg initialization"
-    "y:i3status:i3 status bar"
-    "y:ttf-iosevka:Font"
-    "y:zsh:Z shell"
+    "pacman:nitrogen:"
+    "pacman:compton:"
+    "pacman:xorg-xrdb:"
+    "pacman:xorg-init:"
+    "yaourt:i3status:"
+    "yaourt:ttf-iosevka:"
+    "yaourt:zsh:ls"
+    "pacman:gtk3-print-backends:"
 )
 
 for line in "${packages[@]}"
 do
     IFS=':' read -r -a parts <<< "$line"
-    #parts=(${line//:/ })
-    if [ ${parts[0]} = "p" ]; then
+    if [ ${parts[0]} = "pacman" ]; then
         manager="sudo pacman"
-    else
+    elif [ ${parts[0]} = "yaourt" ]; then
         manager="yaourt"
     fi
-    echo "Installing with $manager: ${parts[1]}, ${parts[2]}"
+    package=${parts[1]}
+    extra=${parts[2]}
+    if [ -z "$(yaourt -Q ${package})" ] ; then
+        echo "Installing with $manager: ${parts[1]}"
+        foo=$(${manager} -S --noconfirm --needed ${parts[1]})
+        exit_code=$?
+        echo "BAR $exit_code BAR"
+        echo "FOO $foo FOO"
+    else
+        echo "${package} IS installed";
+    fi;
 
-    # Check for installed package: pacman -Qe
-    # Split result into name and verison?
-    # or...
-    # just use: sudo pacman -S --needed chromium
-    foo=$(${manager} -S --needed --noconfirm ${parts[1]})
-    exit_code=$?
-    echo "BAR $exit_code BAR"
-    echo "FOO $foo FOO"
+    # Run extra command.
+    if [ "${parts[2]}" != "" ]; then
+        echo "Running extra command: ${parts[2]}"
+        ${parts[2]}
+    fi
 done
 

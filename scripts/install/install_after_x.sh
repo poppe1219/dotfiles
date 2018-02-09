@@ -71,6 +71,8 @@ packages=(
     "yaourt:ncmpcpp:# Music client to Mopidy."
     "yaourt:iftop:# Network monitor."
     "yaourt:urxvt-resize-font-git:"
+    "yaourt:libxlsxwriter:"
+    "yaourt:sc-im:"
 )
 
 for line in "${packages[@]}"

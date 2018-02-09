@@ -88,10 +88,10 @@ do
     echo "Checking for package ${package}.";
     if [ -z "$(yaourt -Q ${package})" ] ; then
         echo "Installing with $manager: ${parts[1]}"
-        foo=$(${manager} -S --noconfirm --needed ${parts[1]})
+        info=$(${manager} -S --noconfirm --needed ${parts[1]})
         exit_code=$?
-        echo "BAR $exit_code BAR"
-        echo "FOO $foo FOO"
+        echo "Exit code: $exit_code"
+        echo "Install return value: $info"
     fi
 
     ## Run extra command.

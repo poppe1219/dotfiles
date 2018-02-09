@@ -61,7 +61,6 @@ packages=(
     "pacman:evince:# Pdf viewer."
     "pacman:firefox:"
     "pacman:openssh:"
-    "yaourt:gtk3-print-backends-nocolord:# So envince can find printers."
     "yaourt:zsh-autosuggestions:"
     "yaourt:visual-studio-code:"
     "yaourt:googler:"

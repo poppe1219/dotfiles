@@ -96,7 +96,7 @@ setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,se
 alias calc='python -ic "from __future__ import division; from math import *; from random import *"'
 
 # key bindings
-bindkey -v
+#bindkey -v
 export KEYTIMEOUT=1  # Delay 0.1s.
 bindkey "e[1~" beginning-of-line
 bindkey "e[4~" end-of-line

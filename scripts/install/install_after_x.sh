@@ -73,6 +73,7 @@ packages=(
     "yaourt:urxvt-resize-font-git:"
     "yaourt:libxlsxwriter:"
     "yaourt:sc-im:"
+    "yaourt:ttf-hack:"
 )
 
 for line in "${packages[@]}"

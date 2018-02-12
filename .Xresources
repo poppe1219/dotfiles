@@ -29,10 +29,11 @@
 
 Xft.dpi:                        109
 URxvt*termName:                 rxvt-256color
-URxvt*font:                     xft:Inconsolata:style=Regular:pixelsize=14
+!URxvt*font:                     xft:Inconsolata:style=Regular:pixelsize=14
+URxvt*font:                     xft:Hack:style=Regular:pixelsize=12
 URxvt.depth:                    32
-URxvt*lineSpace:                0
-URxvt.letterSpace:              -1.5
+URxvt*lineSpace:                1
+URxvt.letterSpace:             -1
 URxvt.iso14755:                 false
 URxvt.iso14755_52:              false
 URxvt.scrollBar:                false

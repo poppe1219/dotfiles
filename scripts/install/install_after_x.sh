@@ -50,6 +50,9 @@ packages=(
     "pacman:urxvt-perls:"
     "pacman:vim:"
     "pacman:neovim:"
+    "pacman:chromium:"
+    "pacman:dropbox:"
+    "pacman:tomboy:"
     "pacman:dmidecode:"
     "pacman:htop:"
     "pacman:xorg-xprop:"
@@ -111,8 +114,7 @@ echo "============="
 echo ""
 echo "Testing add ssh server capability"
 echo "---------------------------------"
-echo "systemctl enable sshd.socket"
-echo "systemctl enable sshd.service"
+echo "Configure non standard port?"
 echo ""
 echo "Link specific configs per hostname"
 echo "----------------------------------"
@@ -123,5 +125,5 @@ echo "To the correct config in the repo:"
 echo "~/git/dotfiles/.config/polybar/work_desktop1_config"
 echo ""
 
-/usr/bin/zsh # Start a shell, otherwize the terminal is left "empty".
+#/usr/bin/zsh # Start a shell, otherwize the terminal is left "empty".
 

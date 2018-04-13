@@ -119,6 +119,8 @@ done
 
 sudo systemctl enable sshd.socket
 sudo systemctl enable sshd.service
+sudo systemctl start docker
+
 
 echo ""
 echo "Dotfiles Todo"

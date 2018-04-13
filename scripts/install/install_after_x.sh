@@ -69,6 +69,8 @@ packages=(
     "pacman:evince:# Pdf viewer."
     "pacman:firefox:"
     "pacman:openssh:"
+    "pacman:docker:"
+    "pacman:docker-compose:"
     "yaourt:zsh-autosuggestions:"
     "yaourt:visual-studio-code-bin:"
     "yaourt:googler:"

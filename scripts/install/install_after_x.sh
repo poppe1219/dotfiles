@@ -20,6 +20,9 @@ if [ ! -f $VIMRC_PATH ]; then
 	sudo pacman -S --noconfirm sddm
 	sudo systemctl enable sddm.service
 	
+    git clone git@github.com:guimeira/i3lock-fancy-multimonitor.git "$HOME_PATH/git/i3lock-fancy-multimonitor"
+    sed -i 's/BLURTYPE="1x1"/BLURTYPE="4x5"/g' "$HOME_PATH/git/i3lock-fancy-multimonitor/lock"
+
 	git clone git@github.com:robbyrussell/oh-my-zsh.git "$HOME_PATH/.oh-my-zsh"
 	rm -f "$HOME_PATH/.zshrc"
 	ln -s "$HOME_PATH/git/dotfiles/.zshrc" "$HOME_PATH/.zshrc"
@@ -61,6 +64,8 @@ packages=(
     "pacman:tig:"
     "pacman:python-pip:"
     "pacman:cups:"
+    "pacman:scrot:"
+    "pacman:i3lock:"
     "pacman:evince:# Pdf viewer."
     "pacman:firefox:"
     "pacman:openssh:"

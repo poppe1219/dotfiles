@@ -77,6 +77,11 @@ packages=(
     "yaourt:libxlsxwriter:"
     "yaourt:sc-im:"
     "yaourt:ttf-hack:"
+    "yaourt:gimp:"
+    "yaourt:inkscape:"
+    "yaourt:spotify:"
+    "yaourt:pavucontrol:"
+    "yaourt:rdesktop:"
 )
 
 for line in "${packages[@]}"

@@ -90,6 +90,8 @@ packages=(
     "yaourt:spotify:"
     "yaourt:pavucontrol:"
     "yaourt:rdesktop:"
+    "yaourt:libreoffice-fresh:"
+    "yaourt:libreoffice-fresh-sv:"
 )
 
 for line in "${packages[@]}"

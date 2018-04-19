@@ -20,6 +20,9 @@ if [ ! -f $VIMRC_PATH ]; then
 	sudo pacman -S --noconfirm sddm
 	sudo systemctl enable sddm.service
 	
+    git clone git@github.com:guimeira/i3lock-fancy-multimonitor.git "$HOME_PATH/git/i3lock-fancy-multimonitor"
+    sed -i 's/BLURTYPE="1x1"/BLURTYPE="4x5"/g' "$HOME_PATH/git/i3lock-fancy-multimonitor/lock"
+
 	git clone git@github.com:robbyrussell/oh-my-zsh.git "$HOME_PATH/.oh-my-zsh"
 	rm -f "$HOME_PATH/.zshrc"
 	ln -s "$HOME_PATH/git/dotfiles/.zshrc" "$HOME_PATH/.zshrc"
@@ -48,8 +51,11 @@ packages=(
     "pacman:lxappearance:"
     "pacman:rofi:"
     "pacman:urxvt-perls:"
-    "pacman:gvim:"
+    "pacman:vim:"
     "pacman:neovim:"
+    "pacman:chromium:"
+    "pacman:dropbox:"
+    "pacman:tomboy:"
     "pacman:dmidecode:"
     "pacman:htop:"
     "pacman:xorg-xprop:"
@@ -58,11 +64,16 @@ packages=(
     "pacman:tig:"
     "pacman:python-pip:"
     "pacman:cups:"
+    "pacman:scrot:"
+    "pacman:i3lock:"
     "pacman:evince:# Pdf viewer."
     "pacman:firefox:"
     "pacman:openssh:"
+    "pacman:docker:"
+    "pacman:docker-compose:"
+    "pacman:pulseaudio:"
     "yaourt:zsh-autosuggestions:"
-    "yaourt:visual-studio-code:"
+    "yaourt:visual-studio-code-bin:"
     "yaourt:googler:"
     "yaourt:svtplay-dl:"
     "yaourt:youtube-dl:"
@@ -73,6 +84,14 @@ packages=(
     "yaourt:urxvt-resize-font-git:"
     "yaourt:libxlsxwriter:"
     "yaourt:sc-im:"
+    "yaourt:ttf-hack:"
+    "yaourt:gimp:"
+    "yaourt:inkscape:"
+    "yaourt:spotify:"
+    "yaourt:pavucontrol:"
+    "yaourt:rdesktop:"
+    "yaourt:libreoffice-fresh:"
+    "yaourt:libreoffice-fresh-sv:"
 )
 
 for line in "${packages[@]}"
@@ -103,24 +122,25 @@ done
 
 sudo systemctl enable sshd.socket
 sudo systemctl enable sshd.service
+sudo systemctl start docker
 
-echo ""
-echo "Dotfiles Todo"
-echo "============="
-echo ""
-echo "Testing add ssh server capability"
-echo "---------------------------------"
-echo "systemctl enable sshd.socket"
-echo "systemctl enable sshd.service"
-echo ""
-echo "Link specific configs per hostname"
-echo "----------------------------------"
-echo "Get hostname, contat into config filename."
-echo "Ex, link from "
-echo "~/.config/polybar/config"
-echo "To the correct config in the repo:"
-echo "~/git/dotfiles/.config/polybar/work_desktop1_config"
-echo ""
 
-/usr/bin/zsh # Start a shell, otherwize the terminal is left "empty".
+# Dotfiles Todo"
+# ============="
+
+# Testing add ssh server capability
+# ---------------------------------
+# Configure non standard port?
+
+# Link specific configs per hostname
+# ----------------------------------
+# Get hostname, contat into config filename.
+# Ex, link from 
+# ~/.config/polybar/config
+# To the correct config in the repo:
+# ~/git/dotfiles/.config/polybar/work_desktop1_config
+# add env specific mounts:
+# work_desktop: sudo mount /dev/sda1 /mnt/sda1
+
+#/usr/bin/zsh # Start a shell, otherwize the terminal is left "empty".
 

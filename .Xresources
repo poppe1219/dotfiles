@@ -29,7 +29,6 @@
 
 Xft.dpi:                        109
 URxvt*termName:                 rxvt-256color
-!URxvt*font:                     xft:Inconsolata:style=Regular:pixelsize=14
 URxvt*font:                     xft:Hack:style=Regular:pixelsize=12
 URxvt.depth:                    32
 URxvt*lineSpace:                1
@@ -72,7 +71,7 @@ rofi.padding: 80
 rofi.opacity: 80
 rofi.lines: 7
 rofi.eh: 1.5
-rofi.font: Roboto Bold 14
+rofi.font: Hack Bold 14
 rofi.color-window: #393939, #393939, #268bd2
 rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
 rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171

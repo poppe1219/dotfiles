@@ -57,9 +57,18 @@ if ! grep "\[archlinuxfr\]" /etc/pacman.conf ; then
 fi
 
 sudo pacman -Sy --noconfirm yaourt
-sudo pacman -S --noconfirm nitrogen rxvt-unicode xorg xorg-xrdb compton xorg-xinit
+sudo pacman -S --noconfirm nitrogen
+sudo pacman -S --noconfirm rxvt-unicode
+sudo pacman -S --noconfirm xorg
+sudo pacman -S --noconfirm xorg-xrdb
+sudo pacman -S --noconfirm compton
+sudo pacman -S --noconfirm xorg-xinit
 sudo pacman -S --noconfirm numlockx
-yaourt -S --noconfirm i3-gaps i3status ttf-iosevka zsh polybar
+yaourt -S --noconfirm i3-gaps
+yaourt -S --noconfirm i3status
+yaourt -S --noconfirm ttf-iosevka
+yaourt -S --noconfirm zsh
+yaourt -S --noconfirm polybar
 sudo chsh -s /bin/zsh $USER  # Set default shell to zsh.
 touch "$HOME_PATH/.xinitrc"
 if ! grep "exec i3" "$HOME_PATH/.xinitrc" ; then

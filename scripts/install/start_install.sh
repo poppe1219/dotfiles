@@ -40,7 +40,7 @@ cd "$HOME_PATH/.config/polybar"
 ln -s "$HOME_PATH/git/dotfiles/.config/polybar/config" config
 ln -s "$HOME_PATH/git/dotfiles/.config/polybar/launch.sh" launch.sh
 cd "$HOME_PATH/.config/mopidy"
-ln -s "$HOME_PATH/git/dotfiles/.config/mopidy/mopidy.conf" mopidy.conf
+cp "$HOME_PATH/git/dotfiles/.config/mopidy/mopidy.conf.template" mopidy.conf
 cd "$HOME_PATH/.config/gtk-3.0"
 ln -s "$HOME_PATH/git/dotfiles/.config/gtk-3.0/settings.ini" settings.ini
 sudo chown -R "$USER:users" "$HOME_PATH/.config" "$HOME_PATH/.gtkrc-2.0"

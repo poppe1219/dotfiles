@@ -72,6 +72,7 @@ packages=(
     "pacman:docker:"
     "pacman:docker-compose:"
     "pacman:pulseaudio:"
+    "pacman:samba:sudo touch /etc/samba/smb.conf"
     "yaourt:zsh-autosuggestions:"
     "yaourt:visual-studio-code-bin:"
     "yaourt:googler:"
@@ -113,11 +114,11 @@ do
         echo "Install return value: $info"
     fi
 
-    ## Run extra command.
-    #if [ "${parts[2]}" != "" ]; then
-    #    echo "Running extra command: ${parts[2]}"
-    #    ${parts[2]}
-    #fi
+    # Run extra command.
+    if [ "${parts[2]}" != "" ]; then
+        echo "Running extra command: ${parts[2]}"
+        ${parts[2]}
+    fi
 done
 
 sudo systemctl enable sshd.socket

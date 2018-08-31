@@ -73,7 +73,7 @@ packages=(
     "pacman:docker-compose:"
     "pacman:pulseaudio:"
     "yaourt:zsh-autosuggestions:"
-    "yaourt:visual-studio-code-bin:"
+#    "yaourt:visual-studio-code-bin:"
     "yaourt:googler:"
     "yaourt:svtplay-dl:"
     "yaourt:youtube-dl:"
